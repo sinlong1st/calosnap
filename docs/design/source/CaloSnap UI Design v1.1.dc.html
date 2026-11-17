@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><template id="__bundler_thumbnail" data-bg-color="#173D30"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#173D30"></rect><circle cx="600" cy="400" r="150" fill="none" stroke="#F8F5EE" stroke-width="36"></circle><circle cx="600" cy="400" r="60" fill="#7FA07E"></circle></svg></template><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet"><style>body{margin:0;background:#EEEBE2;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#202B25;font-variant-numeric:tabular-nums}a{color:#173D30}a:hover{color:#7FA07E}*{scrollbar-width:none}*::-webkit-scrollbar{display:none}button{font-family:inherit}</style></helmet>
+
+<section data-screen-label="00 Cover" style="padding:64px 64px 48px;width:2200px;box-sizing:border-box">
+  <div style="display:flex;gap:10px;align-items:center;margin-bottom:18px"><span style="font:500 12px 'Geist Mono',monospace;letter-spacing:.08em;color:#173D30;padding:6px 10px;border-radius:6px;background:#E6EDE0">CALOSNAP · UI DESIGN V1.1 · HANDOFF CANDIDATE</span><span style="font:500 12px 'Geist Mono',monospace;letter-spacing:.08em;color:#6B4B14;padding:6px 10px;border-radius:6px;background:#F6EBD6">ALL NUTRITION VALUES ARE MOCK DATA</span></div>
+  <h1 style="font:800 56px/1.05 'Plus Jakarta Sans';letter-spacing:-.03em;margin:0 0 16px">CaloSnap UI Design v1.1</h1>
+  <p style="font:500 18px/1.55 'Plus Jakarta Sans';color:#55615A;margin:0 0 36px;max-width:900px;text-wrap:pretty">The base is Garden: warm ivory, forest green, soft cards. From Ledger it takes horizontal macro bars, the ingredient ledger, the calorie range scale and basis indicators. From Lens it takes the dark camera, framing guidance and fast Precision questions. Food photography is shown as labeled placeholders.</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1700px">
+    <div style="background:#F8F5EE;border-radius:20px;padding:22px"><div style="font:700 15px 'Plus Jakarta Sans';margin-bottom:6px">Estimates, never exact</div><div style="font:500 14px/1.5 'Plus Jakarta Sans';color:#55615A">Calories appear as a range with a most-likely value. Each ingredient is marked Seen, Estimated or Assumed.</div></div>
+    <div style="background:#F8F5EE;border-radius:20px;padding:22px"><div style="font:700 15px 'Plus Jakarta Sans';margin-bottom:6px">Nothing counts until saved</div><div style="font:500 14px/1.5 'Plus Jakarta Sans';color:#55615A">Scans are drafts. Daily totals change only after Save on the Results review. Meal fit shows the impact as a projected, hatched segment.</div></div>
+    <div style="background:#F8F5EE;border-radius:20px;padding:22px"><div style="font:700 15px 'Plus Jakarta Sans';margin-bottom:6px">Minimal input</div><div style="font:500 14px/1.5 'Plus Jakarta Sans';color:#55615A">Auto asks nothing. Precision asks up to three one-tap questions, and every one can be skipped or ended early.</div></div>
+    <div style="background:#F8F5EE;border-radius:20px;padding:22px"><div style="font:700 15px 'Plus Jakarta Sans';margin-bottom:6px">User-owned targets</div><div style="font:500 14px/1.5 'Plus Jakarta Sans';color:#55615A">Recommended and manual targets stay separate. Profile changes never overwrite a manual target.</div></div>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:28px;font:500 13px 'Geist Mono',monospace">
+    <a href="#s01" style="padding:8px 12px;border-radius:8px;background:#fff;text-decoration:none">01 Tokens</a><a href="#s02" style="padding:8px 12px;border-radius:8px;background:#fff;text-decoration:none">02 Components</a><a href="#s03" style="padding:8px 12px;border-radius:8px;background:#fff;text-decoration:none">03 Navigation &amp; flows</a><a href="#s04" style="padding:8px 12px;border-radius:8px;background:#fff;text-decoration:none">04 Onboarding</a><a href="#s05" style="padding:8px 12px;border-radius:8px;background:#fff;text-decoration:none">05 Home</a><a href="#s06" style="padding:8px 12px;border-radius:8px;background:#fff;text-decoration:none">06 Scan &amp; analysis states</a><a href="#s07" style="padding:8px 12px;border-radius:8px;background:#fff;text-decoration:none">07 Precision &amp; results</a><a href="#s08" style="padding:8px 12px;border-radius:8px;background:#fff;text-decoration:none">08 History &amp; profile</a>
+  </div>
+</section>
+
+<section id="s01" data-screen-label="01 Tokens" style="padding:56px 64px;width:2200px;box-sizing:border-box;border-top:1px solid #DDD9CD">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font:500 13px 'Geist Mono',monospace;color:#5E7F5D">01</span><h2 style="font:800 32px 'Plus Jakarta Sans';letter-spacing:-.02em;margin:0">Design tokens</h2></div>
+  <p style="font:500 15px/1.5 'Plus Jakarta Sans';color:#55615A;margin:8px 0 32px;max-width:860px">Tokens have semantic names so a dark theme can swap values later. Light mode is the only theme in v1. Typography uses one family, Plus Jakarta Sans, with tabular numerals.</p>
+  <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:24px">
+    <div style="background:#fff;border-radius:24px;padding:28px">
+      <div style="font:700 16px 'Plus Jakarta Sans';margin-bottom:18px">Color</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+        <sc-for list="{{ colors }}" as="c" hint-placeholder-count="14">
+          <div><div style="height:64px;border-radius:14px;background:{{ c.hex }};box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)"></div><div style="font:600 12px 'Geist Mono',monospace;margin-top:8px">{{ c.name }}</div><div style="font:400 11px 'Geist Mono',monospace;color:#55615A">{{ c.hex }}</div><div style="font:500 12px/1.35 'Plus Jakarta Sans';color:#55615A;margin-top:2px">{{ c.use }}</div></div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:24px;padding:28px">
+      <div style="font:700 16px 'Plus Jakarta Sans';margin-bottom:18px">Type scale</div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <sc-for list="{{ types }}" as="t" hint-placeholder-count="7">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid #EFECE3;padding-bottom:12px"><span style="font:{{ t.font }}">{{ t.sample }}</span><span style="font:400 11px 'Geist Mono',monospace;color:#55615A;white-space:nowrap">{{ t.name }} · {{ t.spec }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div style="background:#fff;border-radius:24px;padding:28px">
+        <div style="font:700 16px 'Plus Jakarta Sans';margin-bottom:18px">Spacing (4 pt base)</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <sc-for list="{{ spaces }}" as="s" hint-placeholder-count="7">
+            <div style="display:flex;align-items:center;gap:12px"><span style="font:500 11px 'Geist Mono',monospace;width:70px">{{ s.name }}</span><span style="height:12px;border-radius:3px;background:#7FA07E;width:{{ s.w }}"></span><span style="font:400 11px 'Geist Mono',monospace;color:#55615A">{{ s.v }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:24px;padding:28px">
+        <div style="font:700 16px 'Plus Jakarta Sans';margin-bottom:18px">Radius &amp; elevation</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <sc-for list="{{ radii }}" as="r" hint-placeholder-count="5">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:56px;height:56px;background:#E6EDE0;border:1.5px solid #173D30;border-radius:{{ r.v }}"></span><span style="font:400 11px 'Geist Mono',monospace">{{ r.name }}</span></div>
+          </sc-for>
+        </div>
+        <div style="font:500 12px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:16px">Elevation: cards are flat on ivory (1px soft shadow); sheets use 0 -8 32 rgba(23,61,48,.12); the Scan button uses 0 6 16 rgba(23,61,48,.3). Touch targets ≥ 44 pt.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s02" data-screen-label="02 Components" style="padding:56px 64px;width:2200px;box-sizing:border-box;border-top:1px solid #DDD9CD">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font:500 13px 'Geist Mono',monospace;color:#5E7F5D">02</span><h2 style="font:800 32px 'Plus Jakarta Sans';letter-spacing:-.02em;margin:0">Reusable components</h2></div>
+  <p style="font:500 15px/1.5 'Plus Jakarta Sans';color:#55615A;margin:8px 0 32px;max-width:860px">Every screen below is built from these parts.</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
+
+    <div style="background:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font:500 11px 'Geist Mono',monospace;color:#55615A">BUTTONS</div>
+      <button style="height:54px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 15px 'Plus Jakarta Sans'">Save to diary</button>
+      <button style="height:54px;border-radius:999px;border:1.5px solid #D9D4C6;background:#fff;color:#202B25;font:700 15px 'Plus Jakarta Sans'">Discard</button>
+      <button style="height:54px;border-radius:999px;border:0;background:#E9E6DB;color:#8B938C;font:700 15px 'Plus Jakarta Sans'">Continue (disabled)</button>
+      <span style="font:700 14px 'Plus Jakarta Sans';color:#173D30;text-align:center;text-decoration:underline;text-underline-offset:3px">Use current estimate</span>
+    </div>
+
+    <div style="background:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:14px">
+      <div style="font:500 11px 'Geist Mono',monospace;color:#55615A">BASIS INDICATORS</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span style="display:flex;align-items:center;gap:6px;font:700 12px 'Plus Jakarta Sans';padding:6px 10px;border-radius:999px;background:#E6EDE0;color:#173D30"><span style="width:8px;height:8px;border-radius:50%;background:#173D30"></span>Seen</span>
+        <span style="display:flex;align-items:center;gap:6px;font:700 12px 'Plus Jakarta Sans';padding:6px 10px;border-radius:999px;background:#F6EBD6;color:#6B4B14"><span style="width:8px;height:8px;border-radius:50%;background:#D9A24E"></span>Estimated</span>
+        <span style="display:flex;align-items:center;gap:6px;font:700 12px 'Plus Jakarta Sans';padding:6px 10px;border-radius:999px;background:#EEEBE2;color:#55615A"><span style="width:8px;height:8px;border-radius:50%;border:1.5px dashed #55615A;box-sizing:border-box"></span>Assumed</span>
+      </div>
+      <div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A"><b style="color:#202B25">Seen</b>: the food is visible in the photo. <b style="color:#202B25">Estimated</b>: visible, but its portion is inferred. <b style="color:#202B25">Assumed</b>: not visible (oil, dressing, sugar); a typical amount was added.</div>
+      <div style="display:flex;align-items:center;gap:8px;font:600 12px 'Plus Jakarta Sans';color:#55615A"><span style="display:flex;gap:3px"><span style="width:8px;height:8px;border-radius:50%;background:#173D30"></span><span style="width:8px;height:8px;border-radius:50%;background:#173D30"></span><span style="width:8px;height:8px;border-radius:50%;background:#DDD8CB"></span></span>Confidence: medium</div>
+    </div>
+
+    <div style="background:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:16px">
+      <div style="font:500 11px 'Geist Mono',monospace;color:#55615A">MACRO BAR · CURRENT &amp; PROJECTED</div>
+      <div><div style="display:flex;justify-content:space-between;font:600 13px 'Plus Jakarta Sans'"><span>Protein</span><span style="color:#55615A">88 / 165 g</span></div><div style="height:8px;border-radius:4px;background:#EDEAE0;margin-top:7px;overflow:hidden"><div style="height:8px;width:53%;background:#173D30"></div></div></div>
+      <div><div style="display:flex;justify-content:space-between;font:600 13px 'Plus Jakarta Sans'"><span>Protein</span><span style="color:#55615A">88 <span style="color:#6B4B14">+ 42</span> / 165 g</span></div><div style="height:8px;border-radius:4px;background:#EDEAE0;margin-top:7px;overflow:hidden;display:flex"><div style="height:8px;width:53%;background:#173D30"></div><div style="height:8px;width:25%;background:repeating-linear-gradient(45deg,#D9A24E 0 3px,#F1D39F 3px 6px)"></div></div></div>
+      <div style="font:500 12px/1.45 'Plus Jakarta Sans';color:#55615A">The hatched gold segment is this meal if you save it. It turns solid only after Save.</div>
+    </div>
+
+    <div style="background:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:14px">
+      <div style="font:500 11px 'Geist Mono',monospace;color:#55615A">CALORIE RANGE SCALE</div>
+      <div style="display:flex;align-items:baseline;gap:6px"><span style="font:800 30px 'Plus Jakarta Sans';letter-spacing:-.02em">610–740</span><span style="font:600 13px 'Plus Jakarta Sans';color:#55615A">kcal</span></div>
+      <div style="position:relative;height:40px">
+        <div style="position:absolute;top:12px;left:0;right:0;height:6px;border-radius:3px;background:#EDEAE0"></div>
+        <div style="position:absolute;top:8px;left:27.5%;width:32.5%;height:14px;border-radius:7px;background:#F1D39F"></div>
+        <div style="position:absolute;top:4px;left:43.7%;width:3px;height:22px;border-radius:2px;background:#173D30"></div>
+        <span style="position:absolute;top:28px;left:0;font:500 10px 'Geist Mono',monospace;color:#55615A">500</span><span style="position:absolute;top:28px;left:43.7%;transform:translateX(-50%);font:600 10px 'Geist Mono',monospace">675 likely</span><span style="position:absolute;top:28px;right:0;font:500 10px 'Geist Mono',monospace;color:#55615A">900</span>
+      </div>
+      <div style="font:500 12px/1.45 'Plus Jakarta Sans';color:#55615A">The band and the tick come straight from the analysis result: likely range and most likely value. Their width reflects the available evidence and is never a fixed percentage. Scale end labels are rounded outward to the nearest 100.</div>
+    </div>
+
+    <div style="background:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font:500 11px 'Geist Mono',monospace;color:#55615A">MODE CONTROL · LIGHT / CAMERA</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;background:#ECE8DD;border-radius:999px;padding:4px;gap:4px"><span style="height:42px;border-radius:999px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans';color:#173D30">Auto</span><span style="height:42px;border-radius:999px;display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans';color:#55615A">Precision</span></div>
+      <div style="background:#0F1A15;border-radius:20px;padding:12px;display:flex;justify-content:center"><div style="display:flex;background:rgba(255,255,255,.1);border-radius:999px;padding:4px;gap:2px"><span style="height:38px;padding:0 18px;border-radius:999px;display:grid;place-items:center;font:700 13px 'Plus Jakarta Sans';color:#C9D4CC">Auto</span><span style="height:38px;padding:0 18px;border-radius:999px;background:#F8F5EE;display:grid;place-items:center;font:700 13px 'Plus Jakarta Sans';color:#173D30">Precision</span></div></div>
+    </div>
+
+    <div style="background:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font:500 11px 'Geist Mono',monospace;color:#55615A">ANSWER TILES (PRECISION)</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <span style="height:56px;border-radius:16px;border:1.5px solid #DDD8CB;display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans'">½ cup</span>
+        <span style="height:56px;border-radius:16px;background:#173D30;color:#F8F5EE;display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans'">1 cup ✓</span>
+        <span style="height:56px;border-radius:16px;border:1.5px solid #DDD8CB;display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans'">1½ cups</span>
+        <span style="height:56px;border-radius:16px;border:1.5px solid #DDD8CB;display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans'">2 cups</span>
+      </div>
+      <div style="font:500 12px 'Plus Jakarta Sans';color:#55615A">Tapping a tile selects it and moves to the next question after 300 ms. "Skip question" advances without an answer.</div>
+    </div>
+
+    <div style="background:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font:500 11px 'Geist Mono',monospace;color:#55615A">INGREDIENT ROW · STEPPER</div>
+      <div style="display:flex;align-items:center;gap:12px;padding:6px 0 12px;border-bottom:1px solid #EFECE3"><span style="width:8px;height:8px;border-radius:50%;background:#D9A24E;flex:none"></span><div style="flex:1"><div style="font:700 14px 'Plus Jakarta Sans'">Jasmine rice</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A;margin-top:2px">~180 g · about 1 cup</div></div><span style="font:700 15px 'Plus Jakarta Sans'">210</span><span style="width:32px;height:32px;border-radius:10px;background:#F3F0E7;display:grid;place-items:center;font:600 13px 'Plus Jakarta Sans';color:#173D30">Edit</span></div>
+      <div style="display:flex;align-items:center;gap:10px"><span style="width:48px;height:48px;border-radius:14px;border:1.5px solid #DDD8CB;display:grid;place-items:center;font:600 22px 'Plus Jakarta Sans';color:#173D30">−</span><div style="flex:1;text-align:center"><div style="font:800 22px 'Plus Jakarta Sans'">225 g</div><div style="font:500 11px 'Plus Jakarta Sans';color:#55615A">25 g steps</div></div><span style="width:48px;height:48px;border-radius:14px;border:1.5px solid #DDD8CB;display:grid;place-items:center;font:600 22px 'Plus Jakarta Sans';color:#173D30">+</span></div>
+    </div>
+
+    <div style="background:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font:500 11px 'Geist Mono',monospace;color:#55615A">FEEDBACK</div>
+      <div style="display:flex;align-items:center;gap:10px;background:#173D30;color:#F8F5EE;border-radius:18px;padding:12px 14px"><span style="width:22px;height:22px;border-radius:50%;background:#7FA07E;display:grid;place-items:center;font:700 12px 'Plus Jakarta Sans';color:#0F2A21">✓</span><span style="flex:1;font:600 13px 'Plus Jakarta Sans'">Lunch saved · 675 kcal</span><span style="font:700 13px 'Plus Jakarta Sans';color:#C9DCC8">Undo</span></div>
+      <div style="display:flex;align-items:center;gap:10px;background:#F6EBD6;color:#6B4B14;border-radius:14px;padding:10px 14px;font:600 13px 'Plus Jakarta Sans'"><span style="width:8px;height:8px;border-radius:50%;background:#D9A24E"></span>You're offline. Diary is read-only.</div>
+      <div style="display:flex;align-items:center;gap:10px;background:#F6E3DC;color:#7E3322;border-radius:14px;padding:10px 14px;font:600 13px 'Plus Jakarta Sans'"><span style="width:8px;height:8px;border-radius:50%;background:#A3452F"></span>Couldn't analyze photo. Try again.</div>
+    </div>
+
+    <div style="background:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:12px;grid-column:span 2">
+      <div style="font:500 11px 'Geist Mono',monospace;color:#55615A">TAB BAR · HOME | SCAN | HISTORY</div>
+      <div style="height:86px;background:#fff;border:1px solid #EAE6DA;border-radius:20px;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:start;padding-top:12px;margin-top:20px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:22px;height:22px;border-radius:7px;background:#173D30"></span><span style="font:700 11px 'Plus Jakarta Sans';color:#173D30">Home</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:-30px"><span style="width:60px;height:60px;border-radius:50%;background:#173D30;box-shadow:0 6px 16px rgba(23,61,48,.3);display:grid;place-items:center"><span style="width:20px;height:20px;border-radius:50%;border:3px solid #F8F5EE"></span></span><span style="font:700 11px 'Plus Jakarta Sans';color:#173D30">Scan</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:22px;height:22px;border-radius:7px;border:2px solid #6B756E;box-sizing:border-box"></span><span style="font:600 11px 'Plus Jakarta Sans';color:#6B756E">History</span></div>
+      </div>
+      <div style="font:500 12px 'Plus Jakarta Sans';color:#55615A">Scan opens a full-screen camera and hides the tabs. Profile is reached from the avatar on Home. Icons are placeholder shapes until an icon set is chosen.</div>
+    </div>
+
+    <div style="background:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:12px;grid-column:span 2">
+      <div style="font:500 11px 'Geist Mono',monospace;color:#55615A">MEAL CARD · BOTTOM SHEET</div>
+      <div style="display:flex;gap:20px;align-items:flex-start">
+        <div style="flex:1;background:#F8F5EE;border-radius:22px;padding:10px;display:flex;gap:12px;align-items:center"><div style="width:60px;height:60px;border-radius:16px;background:repeating-linear-gradient(135deg,#E3DFD3 0 6px,#ECE9DF 6px 12px);display:grid;place-items:center;font:9px 'Geist Mono',monospace;color:#6B756E">photo</div><div style="flex:1"><div style="font:700 14px 'Plus Jakarta Sans'">Chicken rice bowl</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A;margin-top:2px">Lunch · 12:41 · 42 g protein</div></div><div style="text-align:right;padding-right:6px"><div style="font:700 15px 'Plus Jakarta Sans'">675</div><div style="font:500 11px 'Plus Jakarta Sans';color:#55615A">kcal</div></div></div>
+        <div style="flex:1;background:#F8F5EE;border-radius:28px 28px 0 0;padding:10px 18px 18px;box-shadow:0 -8px 32px rgba(23,61,48,.12)"><div style="width:40px;height:5px;border-radius:3px;background:#D9D4C6;margin:0 auto 12px"></div><div style="font:700 16px 'Plus Jakarta Sans'">Sheet title</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A;margin-top:4px">28 px top radius, grab handle, drag or tap outside to dismiss.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s03" data-screen-label="03 Flows" style="padding:56px 64px;width:2200px;box-sizing:border-box;border-top:1px solid #DDD9CD">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font:500 13px 'Geist Mono',monospace;color:#5E7F5D">03</span><h2 style="font:800 32px 'Plus Jakarta Sans';letter-spacing:-.02em;margin:0">Navigation &amp; flows</h2></div>
+  <p style="font:500 15px/1.5 'Plus Jakarta Sans';color:#55615A;margin:8px 0 32px;max-width:860px">The app has three tabs: Home, Scan and History. Profile opens from the avatar on Home. Scan, Precision and Results are a full-screen modal stack. Leaving it before Save discards the draft after a confirmation.</p>
+  <div style="background:#fff;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:22px">
+    <sc-for list="{{ flows }}" as="f" hint-placeholder-count="5">
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center;padding-bottom:22px;border-bottom:1px solid #EFECE3">
+        <div><div style="font:700 15px 'Plus Jakarta Sans'">{{ f.name }}</div><div style="font:500 12px/1.4 'Plus Jakarta Sans';color:#55615A;margin-top:3px">{{ f.note }}</div></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px">
+          <sc-for list="{{ f.nodes }}" as="n" hint-placeholder-count="6">
+            <div style="display:flex;align-items:center;gap:8px"><span style="font:400 16px 'Plus Jakarta Sans';color:#9AA39C">{{ n.arrow }}</span><span style="padding:10px 14px;border-radius:12px;font:600 13px 'Plus Jakarta Sans';background:{{ n.bg }};color:{{ n.fg }};border:{{ n.border }}">{{ n.t }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+    <div style="display:flex;gap:18px;font:500 12px 'Plus Jakarta Sans';color:#55615A"><span style="display:flex;gap:6px;align-items:center"><span style="width:14px;height:14px;border-radius:4px;background:#173D30"></span>Commit point (writes to diary or profile)</span><span style="display:flex;gap:6px;align-items:center"><span style="width:14px;height:14px;border-radius:4px;background:#F6EBD6"></span>Optional / skippable</span><span style="display:flex;gap:6px;align-items:center"><span style="width:14px;height:14px;border-radius:4px;background:#F6E3DC"></span>Error or blocked state</span></div>
+  </div>
+</section>
+
+<section id="s04" data-screen-label="04 Onboarding" style="padding:56px 64px;width:2200px;box-sizing:border-box;border-top:1px solid #DDD9CD">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font:500 13px 'Geist Mono',monospace;color:#5E7F5D">04</span><h2 style="font:800 32px 'Plus Jakarta Sans';letter-spacing:-.02em;margin:0">Onboarding &amp; targets</h2></div>
+  <p style="font:500 15px/1.5 'Plus Jakarta Sans';color:#55615A;margin:8px 0 36px;max-width:900px">Four steps, one decision per screen. Goal and activity cards on O2 and O4 are tappable. Targets come from a documented formula shown on O5. Manual changes on O6 are stored separately from the recommendation.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:56px 44px">
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="O1 Welcome" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8;color:#fff"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;top:0;left:0;right:0;height:470px;background:repeating-linear-gradient(135deg,#2E3D35 0 12px,#28372F 12px 24px);border-radius:0 0 40px 40px;display:grid;place-items:center;font:11px 'Geist Mono',monospace;color:rgba(255,255,255,.6)">hero food photography · overhead plate</div>
+        <div style="position:absolute;left:28px;right:28px;top:500px">
+          <div style="font:800 15px 'Plus Jakarta Sans';color:#173D30;letter-spacing:-.01em">CaloSnap</div>
+          <div style="font:800 32px/1.12 'Plus Jakarta Sans';letter-spacing:-.025em;margin-top:10px;text-wrap:pretty">Snap your meal. Understand your nutrition.</div>
+          <div style="font:500 15px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:12px;text-wrap:pretty">Photo-based estimates matched to your goal. You can review and correct every number.</div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:40px;display:flex;flex-direction:column;gap:12px">
+          <button style="height:56px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 16px 'Plus Jakarta Sans'">Get started</button>
+          <div style="font:500 12px 'Plus Jakarta Sans';color:#55615A;text-align:center">Private beta · estimates are approximate, not medical advice</div>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">O1</span><span style="font:700 15px 'Plus Jakarta Sans'">Welcome</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">States the product promise and its limits on the first screen. Sign-in method for the private MVP is still to be decided in Part B.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="O2 Goal" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;top:62px;left:20px;right:20px;display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font:600 20px system-ui">‹</span><div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:4px"><span style="height:5px;border-radius:3px;background:#173D30"></span><span style="height:5px;border-radius:3px;background:#E3DFD3"></span><span style="height:5px;border-radius:3px;background:#E3DFD3"></span><span style="height:5px;border-radius:3px;background:#E3DFD3"></span></div><span style="font:600 12px 'Plus Jakarta Sans';color:#55615A">1 of 4</span></div>
+        <div style="position:absolute;top:128px;left:24px;right:24px">
+          <div style="font:800 28px/1.15 'Plus Jakarta Sans';letter-spacing:-.02em">What's your goal?</div>
+          <div style="font:500 14px 'Plus Jakarta Sans';color:#55615A;margin:8px 0 20px">You can change this any time in Profile.</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ goals }}" as="g" hint-placeholder-count="5">
+              <div onClick="{{ g.pick }}" style="display:flex;align-items:center;gap:14px;padding:16px;border-radius:20px;cursor:pointer;background:{{ g.bg }};border:{{ g.bd }}">
+                <div style="flex:1"><div style="font:700 16px 'Plus Jakarta Sans'">{{ g.t }}</div><div style="font:500 13px 'Plus Jakarta Sans';color:#55615A;margin-top:2px">{{ g.d }}</div></div>
+                <span style="width:22px;height:22px;border-radius:50%;border:2px solid {{ g.ring }};box-sizing:border-box;display:grid;place-items:center"><span style="width:10px;height:10px;border-radius:50%;background:{{ g.dot }}"></span></span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:40px"><button style="width:100%;height:56px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 16px 'Plus Jakarta Sans'">Continue</button></div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">O2</span><span style="font:700 15px 'Plus Jakarta Sans'">Goal selection</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Five MVP goals in plain language. Medical profiles are deferred and not shown. Tap to select.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="O3 About you" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;top:62px;left:20px;right:20px;display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font:600 20px system-ui">‹</span><div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:4px"><span style="height:5px;border-radius:3px;background:#7FA07E"></span><span style="height:5px;border-radius:3px;background:#173D30"></span><span style="height:5px;border-radius:3px;background:#E3DFD3"></span><span style="height:5px;border-radius:3px;background:#E3DFD3"></span></div><span style="font:600 12px 'Plus Jakarta Sans';color:#55615A">2 of 4</span></div>
+        <div style="position:absolute;top:128px;left:24px;right:24px">
+          <div style="font:800 28px/1.15 'Plus Jakarta Sans';letter-spacing:-.02em">About you</div>
+          <div style="font:500 14px 'Plus Jakarta Sans';color:#55615A;margin:8px 0 20px">Used only to estimate your energy needs. Automatic targets are available for adults 18+.</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font:700 13px 'Plus Jakarta Sans'">Sex used for calculation</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;background:#ECE8DD;border-radius:999px;padding:4px;gap:4px;margin-bottom:18px"><span style="height:44px;border-radius:999px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans';color:#173D30">Female</span><span style="height:44px;border-radius:999px;display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans';color:#55615A">Male</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="background:#fff;border-radius:18px;padding:14px 16px"><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Age</div><div style="font:800 24px 'Plus Jakarta Sans';margin-top:4px">31 <span style="font:600 13px 'Plus Jakarta Sans';color:#55615A">yrs</span></div></div>
+            <div style="background:#fff;border-radius:18px;padding:14px 16px;border:2px solid #173D30"><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Height</div><div style="font:800 24px 'Plus Jakarta Sans';margin-top:4px">168 <span style="font:600 13px 'Plus Jakarta Sans';color:#55615A">cm</span></div></div>
+            <div style="background:#fff;border-radius:18px;padding:14px 16px"><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Current weight</div><div style="font:800 24px 'Plus Jakarta Sans';margin-top:4px">66 <span style="font:600 13px 'Plus Jakarta Sans';color:#55615A">kg</span></div></div>
+            <div style="background:#fff;border-radius:18px;padding:14px 16px"><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Target weight <span style="font-weight:500">(optional)</span></div><div style="font:800 24px 'Plus Jakarta Sans';margin-top:4px;color:#8B938C">—</div></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding:0 4px"><span style="font:600 13px 'Plus Jakarta Sans'">Units</span><span style="font:700 13px 'Plus Jakarta Sans';color:#173D30">Metric · Switch to lb / ft</span></div>
+          <div style="margin-top:22px;background:#E6EDE0;border-radius:16px;padding:12px 14px;font:500 12px/1.5 'Plus Jakarta Sans';color:#173D30">Stored with your account. Never sold or used for ads, and not sent to the AI photo provider.</div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:40px"><button style="width:100%;height:56px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 16px 'Plus Jakarta Sans'">Continue</button></div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">O3</span><span style="font:700 15px 'Plus Jakarta Sans'">Personal information</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Only the inputs the Nutrition Goal Engine needs. The focused field (Height) opens a native number wheel. Automatic recommendations require age 18 or older; under 18 routes to O3b.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="O3b Not eligible" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;top:62px;left:20px;right:20px;display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font:600 20px system-ui">‹</span><div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:4px"><span style="height:5px;border-radius:3px;background:#7FA07E"></span><span style="height:5px;border-radius:3px;background:#173D30"></span><span style="height:5px;border-radius:3px;background:#E3DFD3"></span><span style="height:5px;border-radius:3px;background:#E3DFD3"></span></div><span style="font:600 12px 'Plus Jakarta Sans';color:#55615A">2 of 4</span></div>
+        <div style="position:absolute;top:140px;left:24px;right:24px">
+          <div style="background:#fff;border-radius:18px;padding:14px 16px;border:2px solid #A3452F"><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Age</div><div style="font:800 24px 'Plus Jakarta Sans';margin-top:4px">16 <span style="font:600 13px 'Plus Jakarta Sans';color:#55615A">yrs</span></div></div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px;font:600 12px/1.45 'Plus Jakarta Sans';color:#7E3322"><span style="width:8px;height:8px;border-radius:50%;background:#A3452F;margin-top:4px;flex:none"></span>Automatic recommendations are available from age 18.</div>
+          <div style="font:800 26px/1.2 'Plus Jakarta Sans';letter-spacing:-.02em;margin-top:30px;text-wrap:pretty">We can't recommend targets automatically</div>
+          <div style="font:500 15px/1.55 'Plus Jakarta Sans';color:#55615A;margin-top:10px;text-wrap:pretty">Energy needs for people under 18 vary with growth, and our calculation isn't designed for them. You can still use CaloSnap with targets you set yourself, ideally with guidance from a doctor or dietitian.</div>
+          <div style="margin-top:20px;background:#F3F0E7;border-radius:18px;padding:14px 16px;font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A">Meal scanning and the diary work the same. Meal fit compares against your own targets.</div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:40px;display:flex;flex-direction:column;gap:10px">
+          <button style="height:56px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 16px 'Plus Jakarta Sans'">Set my own targets</button>
+          <button style="height:56px;border-radius:999px;border:1.5px solid #D9D4C6;background:#fff;color:#202B25;font:700 15px 'Plus Jakarta Sans'">Edit my age</button>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#A3452F;color:#fff">O3b</span><span style="font:700 15px 'Plus Jakarta Sans'">Not eligible for automatic targets</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Shown when age is under 18, or when another engine eligibility rule fails. Skips O4 and O5 and opens O6 with empty fields and no "Recommended" references. Targets are saved as manual.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="O4 Activity" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;top:62px;left:20px;right:20px;display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font:600 20px system-ui">‹</span><div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:4px"><span style="height:5px;border-radius:3px;background:#7FA07E"></span><span style="height:5px;border-radius:3px;background:#7FA07E"></span><span style="height:5px;border-radius:3px;background:#173D30"></span><span style="height:5px;border-radius:3px;background:#E3DFD3"></span></div><span style="font:600 12px 'Plus Jakarta Sans';color:#55615A">3 of 4</span></div>
+        <div style="position:absolute;top:128px;left:24px;right:24px">
+          <div style="font:800 28px/1.15 'Plus Jakarta Sans';letter-spacing:-.02em">How active are you?</div>
+          <div style="font:500 14px 'Plus Jakarta Sans';color:#55615A;margin:8px 0 20px">Think about a typical week.</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ acts }}" as="g" hint-placeholder-count="5">
+              <div onClick="{{ g.pick }}" style="display:flex;align-items:center;gap:14px;padding:16px;border-radius:20px;cursor:pointer;background:{{ g.bg }};border:{{ g.bd }}">
+                <div style="flex:1"><div style="font:700 16px 'Plus Jakarta Sans'">{{ g.t }}</div><div style="font:500 13px 'Plus Jakarta Sans';color:#55615A;margin-top:2px">{{ g.d }}</div></div>
+                <span style="width:22px;height:22px;border-radius:50%;border:2px solid {{ g.ring }};box-sizing:border-box;display:grid;place-items:center"><span style="width:10px;height:10px;border-radius:50%;background:{{ g.dot }}"></span></span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:40px"><button style="width:100%;height:56px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 16px 'Plus Jakarta Sans'">Calculate my targets</button></div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">O4</span><span style="font:700 15px 'Plus Jakarta Sans'">Activity level</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Five activity levels described in everyday terms. Each level's factor is defined by the Nutrition Goal Engine and isn't shown here.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="O5 Your targets" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;top:62px;left:20px;right:20px;display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font:600 20px system-ui">‹</span><div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:4px"><span style="height:5px;border-radius:3px;background:#7FA07E"></span><span style="height:5px;border-radius:3px;background:#7FA07E"></span><span style="height:5px;border-radius:3px;background:#7FA07E"></span><span style="height:5px;border-radius:3px;background:#173D30"></span></div><span style="font:600 12px 'Plus Jakarta Sans';color:#55615A">4 of 4</span></div>
+        <div style="position:absolute;top:122px;left:20px;right:20px">
+          <div style="font:800 28px/1.15 'Plus Jakarta Sans';letter-spacing:-.02em;padding:0 4px">Your daily targets</div>
+          <div style="background:#fff;border-radius:28px;padding:20px;margin-top:16px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:600 12px 'Plus Jakarta Sans';padding:5px 10px;border-radius:999px;background:#E6EDE0;color:#173D30">Recommended · Gym cut</span></div>
+            <div style="display:flex;align-items:baseline;gap:6px;margin:10px 0 16px"><span style="font:800 44px/1 'Plus Jakarta Sans';letter-spacing:-.03em">2,050</span><span style="font:600 15px 'Plus Jakarta Sans';color:#55615A">kcal / day</span></div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+              <div style="background:#F3F0E7;border-radius:16px;padding:12px"><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Protein</div><div style="font:800 18px 'Plus Jakarta Sans';margin-top:2px">165 g</div><div style="font:500 11px 'Plus Jakarta Sans';color:#55615A">32% of kcal</div></div>
+              <div style="background:#F3F0E7;border-radius:16px;padding:12px"><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Carbs</div><div style="font:800 18px 'Plus Jakarta Sans';margin-top:2px">208 g</div><div style="font:500 11px 'Plus Jakarta Sans';color:#55615A">41% of kcal</div></div>
+              <div style="background:#F3F0E7;border-radius:16px;padding:12px"><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Fat</div><div style="font:800 18px 'Plus Jakarta Sans';margin-top:2px">62 g</div><div style="font:500 11px 'Plus Jakarta Sans';color:#55615A">27% of kcal</div></div>
+            </div>
+          </div>
+          <div style="background:#fff;border-radius:24px;padding:18px 20px;margin-top:12px">
+            <div style="font:700 14px 'Plus Jakarta Sans';margin-bottom:10px">How we calculated this</div>
+            <div style="display:grid;grid-template-columns:1fr auto;gap:8px 12px;font:500 13px 'Plus Jakarta Sans';color:#55615A">
+              <span>Resting energy</span><span style="color:#202B25;font-weight:700">1,394</span>
+              <span>× Activity: Very active</span><span style="color:#202B25;font-weight:700">2,405</span>
+              <span>Goal adjustment: Gym cut</span><span style="color:#202B25;font-weight:700">2,050</span>
+            </div>
+            <div style="font:500 12px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:12px;padding-top:10px;border-top:1px solid #EFECE3">A starting point from a fixed, documented calculation. Adjust it if your experience differs.</div>
+          </div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:40px;display:flex;gap:10px"><button style="flex:1;height:56px;border-radius:999px;border:1.5px solid #D9D4C6;background:#fff;color:#202B25;font:700 15px 'Plus Jakarta Sans'">Adjust</button><button style="flex:1.6;height:56px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 16px 'Plus Jakarta Sans'">Use these targets</button></div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">O5</span><span style="font:700 15px 'Plus Jakarta Sans'">Calculated targets</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Each step is shown. Every value comes from the Nutrition Goal Engine spec (not yet approved), so the numbers here are mock placeholders. The UI renders whatever steps the engine returns and doesn't hardcode formulas, multipliers or offsets.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="O6 Adjust targets" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;inset:0;background:rgba(15,26,21,.45);z-index:1"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;top:150px;background:#F8F5EE;border-radius:28px 28px 0 0;z-index:2;padding:10px 22px 0;box-shadow:0 -8px 32px rgba(23,61,48,.12)">
+          <div style="width:40px;height:5px;border-radius:3px;background:#D9D4C6;margin:0 auto 16px"></div>
+          <div style="font:800 22px 'Plus Jakarta Sans'">Adjust targets</div>
+          <div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin:6px 0 18px">Your values are saved as manual targets. Recommended values stay visible for reference.</div>
+          <div style="background:#fff;border-radius:22px;padding:6px 16px">
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #EFECE3"><div style="flex:1"><div style="font:700 15px 'Plus Jakarta Sans'">Calories</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A">Recommended 2,050</div></div><span style="width:40px;height:40px;border-radius:12px;border:1.5px solid #DDD8CB;display:grid;place-items:center;font:600 18px 'Plus Jakarta Sans';color:#173D30">−</span><span style="font:800 18px 'Plus Jakarta Sans';width:64px;text-align:center">1,900</span><span style="width:40px;height:40px;border-radius:12px;border:1.5px solid #DDD8CB;display:grid;place-items:center;font:600 18px 'Plus Jakarta Sans';color:#173D30">+</span></div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #EFECE3"><div style="flex:1"><div style="font:700 15px 'Plus Jakarta Sans'">Protein</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A">Recommended 165 g</div></div><span style="width:40px;height:40px;border-radius:12px;border:1.5px solid #DDD8CB;display:grid;place-items:center;font:600 18px 'Plus Jakarta Sans';color:#173D30">−</span><span style="font:800 18px 'Plus Jakarta Sans';width:64px;text-align:center">165 g</span><span style="width:40px;height:40px;border-radius:12px;border:1.5px solid #DDD8CB;display:grid;place-items:center;font:600 18px 'Plus Jakarta Sans';color:#173D30">+</span></div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #EFECE3"><div style="flex:1"><div style="font:700 15px 'Plus Jakarta Sans'">Fat</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A">Recommended 62 g</div></div><span style="width:40px;height:40px;border-radius:12px;border:1.5px solid #DDD8CB;display:grid;place-items:center;font:600 18px 'Plus Jakarta Sans';color:#173D30">−</span><span style="font:800 18px 'Plus Jakarta Sans';width:64px;text-align:center">62 g</span><span style="width:40px;height:40px;border-radius:12px;border:1.5px solid #DDD8CB;display:grid;place-items:center;font:600 18px 'Plus Jakarta Sans';color:#173D30">+</span></div>
+            <div style="display:flex;align-items:center;gap:12px;padding:14px 0"><div style="flex:1"><div style="font:700 15px 'Plus Jakarta Sans'">Carbs</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A">Fills remaining calories</div></div><span style="font:800 18px 'Plus Jakarta Sans';color:#55615A">170 g</span></div>
+          </div>
+          <div style="margin-top:12px;background:#F6EBD6;border-radius:16px;padding:12px 14px;font:500 12px/1.5 'Plus Jakarta Sans';color:#6B4B14">Manual targets stay until you reset them. If your weight or activity changes, we'll show the new recommendation without replacing yours.</div>
+          <div style="text-align:center;font:700 14px 'Plus Jakarta Sans';color:#173D30;margin-top:14px;text-decoration:underline;text-underline-offset:3px">Reset to recommended</div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:40px;z-index:3"><button style="width:100%;height:56px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 16px 'Plus Jakarta Sans'">Save manual targets</button></div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">O6</span><span style="font:700 15px 'Plus Jakarta Sans'">Manual override</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Steppers move in 50 kcal / 5 g steps. Carbs fill the remainder, so the targets always add up. Also the only route for users not eligible for automatic targets (O3b). Mock values: 1,900 kcal scenario.</div></div>
+    </div>
+
+  </div>
+</section>
+<section id="s05" data-screen-label="05 Home" style="padding:56px 64px;width:2200px;box-sizing:border-box;border-top:1px solid #DDD9CD">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font:500 13px 'Geist Mono',monospace;color:#5E7F5D">05</span><h2 style="font:800 32px 'Plus Jakarta Sans';letter-spacing:-.02em;margin:0">Home dashboard</h2></div>
+  <p style="font:500 15px/1.5 'Plus Jakarta Sans';color:#55615A;margin:8px 0 36px;max-width:900px">The Garden arc shows calories remaining. Ledger-style horizontal bars show each macro. Totals include saved meals only. The updated state after saving a meal is H3, in section 07.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:56px 44px">
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="H1 Home empty" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;inset:0 0 86px 0;overflow:hidden;padding:62px 20px 0;background:linear-gradient(180deg,#E9EEE0 0%,#F8F5EE 240px)">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><div style="font:500 13px 'Plus Jakarta Sans';color:#55615A">Monday, 16 Nov</div><div style="font:700 22px/1.2 'Plus Jakarta Sans'">Welcome, Maya</div></div><span style="width:44px;height:44px;border-radius:50%;background:#173D30;color:#F8F5EE;display:grid;place-items:center;font:700 16px 'Plus Jakarta Sans'">M</span></div>
+          <div style="background:#fff;border-radius:28px;padding:20px;box-shadow:0 1px 2px rgba(23,61,48,.06)">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:700 16px 'Plus Jakarta Sans'">Calories</span><span style="font:600 12px 'Plus Jakarta Sans';padding:7px 12px;border-radius:999px;background:#EDEEE3;color:#173D30">Gym cut · 2,050</span></div>
+            <div style="position:relative;width:270px;height:150px;margin:14px auto 0">
+              <sc-for list="{{ arc0 }}" as="s" hint-placeholder-count="15"><div style="position:absolute;left:118px;top:128px;width:34px;height:15px;border-radius:6px;background:{{ s.c }};transform:{{ s.t }}"></div></sc-for>
+              <div style="position:absolute;left:0;right:0;top:62px;text-align:center"><div style="font:800 44px/1 'Plus Jakarta Sans';letter-spacing:-.03em">2,050</div><div style="font:500 13px 'Plus Jakarta Sans';color:#55615A;margin-top:4px">kcal remaining</div></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:10px">
+              <sc-for list="{{ macros0 }}" as="m" hint-placeholder-count="3"><div><div style="display:flex;justify-content:space-between;font:600 13px 'Plus Jakarta Sans'"><span>{{ m.name }}</span><span style="color:#55615A">{{ m.eaten }} / {{ m.target }} g</span></div><div style="height:8px;border-radius:4px;background:#EDEAE0;margin-top:6px;overflow:hidden"><div style="height:8px;background:#173D30;width:{{ m.pct }}"></div></div></div></sc-for>
+            </div>
+          </div>
+          <div style="margin-top:14px;border:1.5px dashed #CFCABB;border-radius:24px;padding:22px;text-align:center">
+            <div style="width:52px;height:52px;border-radius:50%;background:#E6EDE0;margin:0 auto 10px;display:grid;place-items:center"><span style="width:18px;height:18px;border-radius:50%;border:3px solid #173D30"></span></div>
+            <div style="font:700 16px 'Plus Jakarta Sans'">No meals logged today</div>
+            <div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin:4px 0 14px;text-wrap:pretty">Take a photo of your next meal. It's only added after you review it and tap Save.</div>
+            <span style="display:inline-flex;height:46px;padding:0 22px;align-items:center;border-radius:999px;background:#173D30;color:#F8F5EE;font:700 14px 'Plus Jakarta Sans'">Scan a meal</span>
+          </div>
+        </div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:86px;background:#fff;border-top:1px solid #EAE6DA;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:start;padding-top:10px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:22px;height:22px;border-radius:7px;background:#173D30"></span><span style="font:700 11px 'Plus Jakarta Sans';color:#173D30">Home</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:-28px"><span style="width:60px;height:60px;border-radius:50%;background:#173D30;box-shadow:0 6px 16px rgba(23,61,48,.3);display:grid;place-items:center"><span style="width:20px;height:20px;border-radius:50%;border:3px solid #F8F5EE"></span></span><span style="font:700 11px 'Plus Jakarta Sans';color:#173D30">Scan</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:22px;height:22px;border-radius:7px;border:2px solid #6B756E;box-sizing:border-box"></span><span style="font:600 11px 'Plus Jakarta Sans';color:#6B756E">History</span></div>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">H1</span><span style="font:700 15px 'Plus Jakarta Sans'">Home · empty day</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Shown right after onboarding and at the start of each day. The empty state explains the save rule up front.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="H2 Home" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;inset:0 0 86px 0;overflow-y:auto;padding:62px 20px 20px;background:linear-gradient(180deg,#E9EEE0 0%,#F8F5EE 240px)">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><div><div style="font:500 13px 'Plus Jakarta Sans';color:#55615A">Monday, 16 Nov</div><div style="font:700 22px/1.2 'Plus Jakarta Sans'">Good afternoon, Maya</div></div><span style="width:44px;height:44px;border-radius:50%;background:#173D30;color:#F8F5EE;display:grid;place-items:center;font:700 16px 'Plus Jakarta Sans'">M</span></div>
+          <div style="display:flex;gap:6px;margin-bottom:14px"><sc-for list="{{ week }}" as="d" hint-placeholder-count="7"><div style="flex:1;height:54px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;background:{{ d.bg }};color:{{ d.fg }}"><span style="font:500 11px 'Plus Jakarta Sans';opacity:.8">{{ d.w }}</span><span style="font:700 15px 'Plus Jakarta Sans'">{{ d.n }}</span></div></sc-for></div>
+          <div style="background:#fff;border-radius:28px;padding:20px;box-shadow:0 1px 2px rgba(23,61,48,.06)">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:700 16px 'Plus Jakarta Sans'">Calories</span><span style="font:600 12px 'Plus Jakarta Sans';padding:7px 12px;border-radius:999px;background:#EDEEE3;color:#173D30">Gym cut · 2,050</span></div>
+            <div style="position:relative;width:270px;height:150px;margin:14px auto 0">
+              <sc-for list="{{ arcB }}" as="s" hint-placeholder-count="15"><div style="position:absolute;left:118px;top:128px;width:34px;height:15px;border-radius:6px;background:{{ s.c }};transform:{{ s.t }}"></div></sc-for>
+              <div style="position:absolute;left:0;right:0;top:62px;text-align:center"><div style="font:800 44px/1 'Plus Jakarta Sans';letter-spacing:-.03em">930</div><div style="font:500 13px 'Plus Jakarta Sans';color:#55615A;margin-top:4px">kcal remaining</div></div>
+            </div>
+            <div style="text-align:center;font:500 12px 'Plus Jakarta Sans';color:#55615A;margin:0 0 14px">1,120 eaten of 2,050</div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <sc-for list="{{ macrosB }}" as="m" hint-placeholder-count="3"><div><div style="display:flex;justify-content:space-between;font:600 13px 'Plus Jakarta Sans'"><span>{{ m.name }}</span><span style="color:#55615A">{{ m.eaten }} / {{ m.target }} g · <b style="color:#202B25">{{ m.left }} g left</b></span></div><div style="height:8px;border-radius:4px;background:#EDEAE0;margin-top:6px;overflow:hidden"><div style="height:8px;background:#173D30;width:{{ m.pct }}"></div></div></div></sc-for>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin:18px 4px 10px"><span style="font:700 16px 'Plus Jakarta Sans'">Today</span><span style="font:700 13px 'Plus Jakarta Sans';color:#173D30">History</span></div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ mealsB }}" as="ml" hint-placeholder-count="2">
+              <div style="background:#fff;border-radius:22px;padding:10px;display:flex;gap:12px;align-items:center"><div style="width:58px;height:58px;border-radius:16px;background:repeating-linear-gradient(135deg,#E3DFD3 0 6px,#ECE9DF 6px 12px);display:grid;place-items:center;font:9px 'Geist Mono',monospace;color:#6B756E">photo</div><div style="flex:1;min-width:0"><div style="font:700 14px 'Plus Jakarta Sans'">{{ ml.name }}</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A;margin-top:2px">{{ ml.type }} · {{ ml.time }} · {{ ml.p }} g protein</div></div><div style="text-align:right;padding-right:6px"><div style="font:700 15px 'Plus Jakarta Sans'">{{ ml.kcal }}</div><div style="font:500 11px 'Plus Jakarta Sans';color:#55615A">kcal</div></div></div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:86px;background:#fff;border-top:1px solid #EAE6DA;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:start;padding-top:10px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:22px;height:22px;border-radius:7px;background:#173D30"></span><span style="font:700 11px 'Plus Jakarta Sans';color:#173D30">Home</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:-28px"><span style="width:60px;height:60px;border-radius:50%;background:#173D30;box-shadow:0 6px 16px rgba(23,61,48,.3);display:grid;place-items:center"><span style="width:20px;height:20px;border-radius:50%;border:3px solid #F8F5EE"></span></span><span style="font:700 11px 'Plus Jakarta Sans';color:#173D30">Scan</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:22px;height:22px;border-radius:7px;border:2px solid #6B756E;box-sizing:border-box"></span><span style="font:600 11px 'Plus Jakarta Sans';color:#6B756E">History</span></div>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">H2</span><span style="font:700 15px 'Plus Jakarta Sans'">Home · in progress</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Two saved meals (mock data). The avatar opens Profile, and the week strip opens past days in History. The Scan tab is the primary action.</div></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="s06" data-screen-label="06 Scan" style="padding:56px 64px;width:2200px;box-sizing:border-box;border-top:1px solid #DDD9CD">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font:500 13px 'Geist Mono',monospace;color:#5E7F5D">06</span><h2 style="font:800 32px 'Plus Jakarta Sans';letter-spacing:-.02em;margin:0">Scan, preview &amp; analysis states</h2></div>
+  <p style="font:500 15px/1.5 'Plus Jakarta Sans';color:#55615A;margin:8px 0 36px;max-width:900px">The camera is dark and immersive (from Lens). The mode is chosen on the photo preview, so the camera itself stays uncluttered, and the last-used mode is remembered. Every failure path ends in a clear next action.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:56px 44px">
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="S1 Camera" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#0F1A15;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#F8F5EE">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,#22302A 0 12px,#1D2A24 12px 24px)"></div>
+        <div style="position:absolute;top:64px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:center"><span style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;font:400 22px/1 system-ui">×</span><span style="font:600 12px 'Plus Jakarta Sans';padding:9px 14px;border-radius:999px;background:rgba(0,0,0,.4)">Last used: Auto</span><span style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center"><span style="width:9px;height:15px;border-radius:2px;background:#F8F5EE"></span></span></div>
+        <div style="position:absolute;top:190px;left:45px;width:300px;height:300px">
+          <div style="position:absolute;inset:0;border-radius:50%;border:2px dashed rgba(232,184,109,.85)"></div>
+          <div style="position:absolute;top:-6px;left:-6px;width:40px;height:40px;border-top:3px solid #F8F5EE;border-left:3px solid #F8F5EE;border-top-left-radius:18px"></div>
+          <div style="position:absolute;top:-6px;right:-6px;width:40px;height:40px;border-top:3px solid #F8F5EE;border-right:3px solid #F8F5EE;border-top-right-radius:18px"></div>
+          <div style="position:absolute;bottom:-6px;left:-6px;width:40px;height:40px;border-bottom:3px solid #F8F5EE;border-left:3px solid #F8F5EE;border-bottom-left-radius:18px"></div>
+          <div style="position:absolute;bottom:-6px;right:-6px;width:40px;height:40px;border-bottom:3px solid #F8F5EE;border-right:3px solid #F8F5EE;border-bottom-right-radius:18px"></div>
+          <div style="position:absolute;inset:0;display:grid;place-items:center;font:11px 'Geist Mono',monospace;color:rgba(255,255,255,.5)">live camera</div>
+        </div>
+        <div style="position:absolute;top:516px;left:30px;right:30px;display:flex;flex-direction:column;align-items:center;gap:8px">
+          <span style="font:700 14px 'Plus Jakarta Sans';color:#F1D39F">Fit the whole plate in the circle</span>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center"><span style="font:600 12px 'Plus Jakarta Sans';padding:7px 11px;border-radius:999px;background:rgba(0,0,0,.4)">Shoot from above or ~45°</span><span style="font:600 12px 'Plus Jakarta Sans';padding:7px 11px;border-radius:999px;background:rgba(0,0,0,.4)">A fork helps with scale</span></div>
+        </div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:210px;background:linear-gradient(180deg,rgba(15,26,21,0),rgba(15,26,21,.92) 45%)"></div>
+        <div style="position:absolute;bottom:48px;left:34px;right:34px;display:flex;align-items:center;justify-content:space-between">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:52px;height:52px;border-radius:14px;background:repeating-linear-gradient(135deg,#4A5A52 0 6px,#3F4E47 6px 12px);border:2px solid #F8F5EE"></span><span style="font:600 11px 'Plus Jakarta Sans'">Gallery</span></div>
+          <span style="width:86px;height:86px;border-radius:50%;border:4px solid #F8F5EE;display:grid;place-items:center"><span style="width:68px;height:68px;border-radius:50%;background:#F8F5EE"></span></span>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;font:700 18px 'Plus Jakarta Sans'">?</span><span style="font:600 11px 'Plus Jakarta Sans'">Tips</span></div>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">S1</span><span style="font:700 15px 'Plus Jakarta Sans'">Camera</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Full-screen with tabs hidden. The framing circle and two short tips are the only guidance. Capture is a single still photo; live video analysis is deferred.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="S2 Preview and mode" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#0F1A15;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8;color:#fff"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;inset:0 0 340px 0;background:repeating-linear-gradient(135deg,#3A4A41 0 12px,#33423A 12px 24px);display:grid;place-items:center;font:11px 'Geist Mono',monospace;color:rgba(255,255,255,.6)">captured photo · chicken rice bowl</div>
+        <span style="position:absolute;top:64px;left:20px;font:700 14px 'Plus Jakarta Sans';color:#fff;padding:12px 16px;border-radius:999px;background:rgba(0,0,0,.45)">Retake</span>
+        <div style="position:absolute;top:400px;left:20px;display:flex;gap:6px"><span style="font:600 12px 'Plus Jakarta Sans';padding:7px 11px;border-radius:999px;background:rgba(15,26,21,.7);color:#fff">✓ Whole plate visible</span><span style="font:600 12px 'Plus Jakarta Sans';padding:7px 11px;border-radius:999px;background:rgba(15,26,21,.7);color:#fff">✓ Good light</span></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:370px;background:#F8F5EE;border-radius:28px 28px 0 0;padding:20px 20px 0">
+          <div style="font:700 17px 'Plus Jakarta Sans';margin:0 4px 12px">How should we analyze it?</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:20px;background:#E6EDE0;border:2px solid #173D30"><div style="flex:1"><div style="font:700 15px 'Plus Jakarta Sans'">Auto</div><div style="font:500 13px 'Plus Jakarta Sans';color:#55615A;margin-top:2px">Instant estimate, no questions. About 5 s.</div></div><span style="width:22px;height:22px;border-radius:50%;border:2px solid #173D30;box-sizing:border-box;display:grid;place-items:center"><span style="width:10px;height:10px;border-radius:50%;background:#173D30"></span></span></div>
+            <div style="display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:20px;background:#fff;border:2px solid transparent"><div style="flex:1"><div style="font:700 15px 'Plus Jakarta Sans'">Precision</div><div style="font:500 13px 'Plus Jakarta Sans';color:#55615A;margin-top:2px">Up to 3 one-tap questions about portions and cooking.</div></div><span style="width:22px;height:22px;border-radius:50%;border:2px solid #C9C4B6;box-sizing:border-box"></span></div>
+          </div>
+          <button style="margin-top:16px;width:100%;height:56px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 16px 'Plus Jakarta Sans'">Analyze photo</button>
+          <div style="font:500 11px/1.45 'Plus Jakarta Sans';color:#55615A;text-align:center;margin-top:10px">Your photo is sent to a third-party AI provider for analysis. Nothing is logged until you review and save.</div>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">S2</span><span style="font:700 15px 'Plus Jakarta Sans'">Photo preview &amp; mode</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Gallery uploads land here too. On-device quality checks (blur, darkness, plate cut off) prompt a retake before any API cost. Analyze is disabled while offline. A one-time consent sheet before the first upload explains the third-party processing.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="S3 Permission denied" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#0F1A15;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#F8F5EE">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <span style="position:absolute;top:64px;left:20px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;font:400 22px/1 system-ui">×</span>
+        <div style="position:absolute;top:240px;left:36px;right:36px;text-align:center">
+          <div style="width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.08);margin:0 auto 20px;display:grid;place-items:center"><span style="width:30px;height:22px;border-radius:6px;border:3px solid #F1D39F;box-sizing:border-box"></span></div>
+          <div style="font:800 24px/1.2 'Plus Jakarta Sans'">Camera access is off</div>
+          <div style="font:500 15px/1.55 'Plus Jakarta Sans';color:#C9D4CC;margin-top:10px;text-wrap:pretty">CaloSnap uses the camera to photograph meals for nutrition analysis. You can also pick a photo from your gallery.</div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:48px;display:flex;flex-direction:column;gap:10px">
+          <button style="height:56px;border-radius:999px;border:0;background:#F8F5EE;color:#173D30;font:700 16px 'Plus Jakarta Sans'">Open Settings</button>
+          <button style="height:56px;border-radius:999px;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:#F8F5EE;font:700 15px 'Plus Jakarta Sans'">Choose from gallery instead</button>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#A3452F;color:#fff">S3</span><span style="font:700 15px 'Plus Jakarta Sans'">Permission denied</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Shown after the system prompt is declined. Gallery is offered as a full alternative, and the same pattern covers photo-library access.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="A1 Analyzing" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#0F1A15;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8;color:#fff"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;inset:0 0 300px 0;background:repeating-linear-gradient(135deg,#3A4A41 0 12px,#33423A 12px 24px)"></div>
+        <div style="position:absolute;left:0;right:0;top:250px;height:3px;background:linear-gradient(90deg,transparent,#F1D39F,transparent);box-shadow:0 0 18px #E8B86D"></div>
+        <span style="position:absolute;top:180px;left:60px;font:600 12px 'Plus Jakarta Sans';padding:6px 10px;border-radius:999px;background:rgba(248,245,238,.92)">Chicken</span>
+        <span style="position:absolute;top:300px;left:200px;font:600 12px 'Plus Jakarta Sans';padding:6px 10px;border-radius:999px;background:rgba(248,245,238,.92)">Rice</span>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:330px;background:#F8F5EE;border-radius:28px 28px 0 0;padding:24px 24px 0">
+          <div style="font:800 22px 'Plus Jakarta Sans'">Analyzing your meal</div>
+          <div style="font:500 13px 'Plus Jakarta Sans';color:#55615A;margin:4px 0 18px">Auto mode · usually 5–10 seconds</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;gap:12px;align-items:center"><span style="width:24px;height:24px;border-radius:50%;background:#173D30;color:#F8F5EE;display:grid;place-items:center;font:700 12px 'Plus Jakarta Sans'">✓</span><span style="font:600 15px 'Plus Jakarta Sans'">Identifying foods</span></div>
+            <div style="display:flex;gap:12px;align-items:center"><span style="width:24px;height:24px;border-radius:50%;border:3px solid #E3DFD3;border-top-color:#173D30;box-sizing:border-box"></span><span style="font:600 15px 'Plus Jakarta Sans'">Estimating portions</span></div>
+            <div style="display:flex;gap:12px;align-items:center"><span style="width:24px;height:24px;border-radius:50%;border:2px solid #E3DFD3;box-sizing:border-box"></span><span style="font:600 15px 'Plus Jakarta Sans';color:#6B756E">Matching nutrition data</span></div>
+          </div>
+          <div style="text-align:center;font:700 14px 'Plus Jakarta Sans';color:#173D30;margin-top:26px">Cancel</div>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">A1</span><span style="font:700 15px 'Plus Jakarta Sans'">Analyzing</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Steps reflect real pipeline stages. Food labels fade in as foods are detected, and a gold line scans the photo. After 20 s the screen offers "Keep waiting" or "Cancel".</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="A2 Analysis failed" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <span style="position:absolute;top:64px;left:20px;width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font:400 22px/1 system-ui">×</span>
+        <div style="position:absolute;top:150px;left:24px;right:24px">
+          <div style="height:200px;border-radius:24px;background:repeating-linear-gradient(135deg,#E3DFD3 0 10px,#ECE9DF 10px 20px);display:grid;place-items:center;font:11px 'Geist Mono',monospace;color:#6B756E;opacity:.7">your photo (dimmed)</div>
+          <div style="font:800 24px/1.2 'Plus Jakarta Sans';margin-top:26px">We couldn't find food in this photo</div>
+          <div style="font:500 15px/1.55 'Plus Jakarta Sans';color:#55615A;margin-top:10px">This usually helps:</div>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;font:500 14px 'Plus Jakarta Sans'">
+            <div style="display:flex;gap:10px;align-items:center"><span style="width:6px;height:6px;border-radius:50%;background:#173D30"></span>Move closer so the plate fills the frame</div>
+            <div style="display:flex;gap:10px;align-items:center"><span style="width:6px;height:6px;border-radius:50%;background:#173D30"></span>Use brighter, even light</div>
+            <div style="display:flex;gap:10px;align-items:center"><span style="width:6px;height:6px;border-radius:50%;background:#173D30"></span>Remove packaging covering the food</div>
+          </div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:48px;display:flex;flex-direction:column;gap:10px">
+          <button style="height:56px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 16px 'Plus Jakarta Sans'">Retake photo</button>
+          <button style="height:56px;border-radius:999px;border:1.5px solid #D9D4C6;background:#fff;color:#202B25;font:700 15px 'Plus Jakarta Sans'">Choose another photo</button>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#A3452F;color:#fff">A2</span><span style="font:700 15px 'Plus Jakarta Sans'">Analysis failed</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Specific, non-blaming copy. Variants cover no food found, low confidence, service error ("Try again") and daily scan limit reached.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="A3 Offline" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;top:62px;left:20px;right:20px;display:flex;align-items:center;gap:10px;background:#F6EBD6;color:#6B4B14;border-radius:14px;padding:12px 14px;font:600 13px 'Plus Jakarta Sans'"><span style="width:8px;height:8px;border-radius:50%;background:#D9A24E"></span>No internet connection</div>
+        <div style="position:absolute;top:150px;left:24px;right:24px">
+          <div style="height:200px;border-radius:24px;background:repeating-linear-gradient(135deg,#E3DFD3 0 10px,#ECE9DF 10px 20px);display:grid;place-items:center;font:11px 'Geist Mono',monospace;color:#6B756E">your photo</div>
+          <div style="font:800 24px/1.2 'Plus Jakarta Sans';margin-top:26px">Waiting for a connection</div>
+          <div style="font:500 15px/1.55 'Plus Jakarta Sans';color:#55615A;margin-top:10px;text-wrap:pretty">New analysis needs an internet connection. Your photo stays on this phone until you try again or discard it. Saved meals remain viewable offline.</div>
+          
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:48px;display:flex;flex-direction:column;gap:10px">
+          <button style="height:56px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 16px 'Plus Jakarta Sans'">Try again now</button>
+          <button style="height:56px;border-radius:999px;border:1.5px solid #D9D4C6;background:#fff;color:#A3452F;font:700 15px 'Plus Jakarta Sans'">Discard photo</button>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#A3452F;color:#fff">A3</span><span style="font:700 15px 'Plus Jakarta Sans'">Offline</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">MVP offline scope: cached Home and History are read-only, with the amber banner shown. New analysis and Save Meal need a connection. There is no background sync or save queue; if the connection drops on R1, Save is disabled and the draft stays on screen.</div></div>
+    </div>
+
+  </div>
+</section>
+<section id="s07" data-screen-label="07 Precision and results" style="padding:56px 64px;width:2200px;box-sizing:border-box;border-top:1px solid #DDD9CD">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font:500 13px 'Geist Mono',monospace;color:#5E7F5D">07</span><h2 style="font:800 32px 'Plus Jakarta Sans';letter-spacing:-.02em;margin:0">Precision questions, results review &amp; save</h2></div>
+  <p style="font:500 15px/1.5 'Plus Jakarta Sans';color:#55615A;margin:8px 0 36px;max-width:960px">Precision questions are generated per meal and ordered by expected impact. Answer tiles on P1–P3 are tappable. No question screen has a Save button: every path leads to the Results review (R1), the only place a meal can be saved. Drafts never change daily totals. The portion stepper in R2 is live.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:56px 44px;align-items:flex-start">
+
+    <sc-for list="{{ qs }}" as="q" hint-placeholder-count="3">
+      <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+        <div data-screen-label="{{ q.screen }}" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+          <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+          <div style="position:absolute;top:62px;left:20px;right:20px;display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font:400 22px/1 system-ui">×</span><div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:4px"><sc-for list="{{ q.segs }}" as="sg" hint-placeholder-count="3"><span style="height:5px;border-radius:3px;background:{{ sg.bg }}"></span></sc-for></div><span style="font:600 12px 'Plus Jakarta Sans';color:#55615A">{{ q.n }} of 3</span></div>
+          <div style="position:absolute;top:126px;left:20px;right:20px;display:flex;gap:12px;align-items:center;background:#fff;border-radius:20px;padding:10px">
+            <div style="width:56px;height:56px;border-radius:14px;background:repeating-linear-gradient(135deg,#3A4A41 0 6px,#33423A 6px 12px);flex:none"></div>
+            <div style="flex:1"><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Current estimate · Chicken rice bowl</div><div style="font:800 20px 'Plus Jakarta Sans';margin-top:2px">{{ q.range }} <span style="font:600 13px 'Plus Jakarta Sans';color:#55615A">kcal</span></div></div>
+          </div>
+          <div style="position:absolute;top:226px;left:24px;right:24px">
+            <div style="font:700 12px 'Plus Jakarta Sans';color:#173D30;letter-spacing:.04em">PRECISION · {{ q.label }}</div>
+            <div style="font:800 28px/1.15 'Plus Jakarta Sans';letter-spacing:-.02em;margin-top:8px;text-wrap:pretty">{{ q.title }}</div>
+            <div style="font:500 14px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:8px">{{ q.why }}</div>
+            <span style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font:700 12px 'Plus Jakarta Sans';padding:6px 10px;border-radius:999px;background:#F6EBD6;color:#6B4B14"><span style="width:7px;height:7px;border-radius:50%;background:#D9A24E"></span>{{ q.impact }}</span>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px">
+              <sc-for list="{{ q.opts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="height:64px;border-radius:18px;cursor:pointer;font:700 15px 'Plus Jakarta Sans';background:{{ o.bg }};color:{{ o.fg }};border:{{ o.bd }}">{{ o.o }}</button></sc-for>
+            </div>
+          </div>
+          <div style="position:absolute;left:24px;right:24px;bottom:36px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;gap:10px"><button style="flex:1;height:56px;border-radius:999px;border:1.5px solid #D9D4C6;background:#fff;color:#202B25;font:700 15px 'Plus Jakarta Sans'">Skip question</button><button style="flex:1.6;height:56px;border-radius:999px;border:0;font:700 16px 'Plus Jakarta Sans';background:{{ q.nextBg }};color:{{ q.nextFg }}">{{ q.next }}</button></div>
+            <div style="text-align:center;font:700 14px 'Plus Jakarta Sans';color:#173D30;text-decoration:underline;text-underline-offset:3px">Use current estimate</div>
+          </div>
+        </div>
+        <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">P{{ q.n }}</span><span style="font:700 15px 'Plus Jakarta Sans'">Precision · {{ q.label }}</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">{{ q.why }} The estimate updates after each answer. "Skip question" moves to the next question (on the last one, to Results review). "Use current estimate" ends the questions and opens Results review. Neither saves the draft.</div></div>
+      </div>
+    </sc-for>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="R1 Results review" style="width:390px;min-height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8;color:#fff"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="height:300px;position:relative;background:repeating-linear-gradient(135deg,#2E3D35 0 12px,#28372F 12px 24px)">
+          <div style="position:absolute;inset:0;display:grid;place-items:center;font:11px 'Geist Mono',monospace;color:rgba(255,255,255,.5)">meal photo</div>
+          <span style="position:absolute;top:64px;left:20px;width:44px;height:44px;border-radius:50%;background:rgba(248,245,238,.92);display:grid;place-items:center;font:700 18px system-ui">‹</span>
+          <span style="position:absolute;top:150px;left:44px;display:flex;align-items:center;gap:6px;font:600 12px 'Plus Jakarta Sans';padding:6px 10px;border-radius:999px;background:rgba(248,245,238,.94)"><span style="width:7px;height:7px;border-radius:50%;background:#173D30"></span>Chicken</span>
+          <span style="position:absolute;top:200px;left:186px;display:flex;align-items:center;gap:6px;font:600 12px 'Plus Jakarta Sans';padding:6px 10px;border-radius:999px;background:rgba(248,245,238,.94)"><span style="width:7px;height:7px;border-radius:50%;background:#D9A24E"></span>Jasmine rice</span>
+          <span style="position:absolute;top:118px;left:236px;display:flex;align-items:center;gap:6px;font:600 12px 'Plus Jakarta Sans';padding:6px 10px;border-radius:999px;background:rgba(248,245,238,.94)"><span style="width:7px;height:7px;border-radius:50%;background:#173D30"></span>Avocado</span>
+        </div>
+        <div style="background:#F8F5EE;border-radius:28px 28px 0 0;margin-top:-28px;position:relative;padding:20px 20px 0;display:flex;flex-direction:column;gap:12px">
+          <div>
+            <div style="display:flex;gap:6px;align-items:center"><span style="font:700 12px 'Plus Jakarta Sans';padding:5px 10px;border-radius:999px;background:#E6EDE0;color:#173D30">Auto estimate</span><span style="font:700 12px 'Plus Jakarta Sans';padding:5px 10px;border-radius:999px;background:#F6EBD6;color:#6B4B14">Not saved yet</span></div>
+            <div style="font:800 24px 'Plus Jakarta Sans';letter-spacing:-.01em;margin-top:10px">Chicken rice bowl</div>
+          </div>
+
+          <div style="background:#fff;border-radius:24px;padding:18px">
+            <div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Estimated calories</div>
+            <div style="display:flex;align-items:baseline;gap:6px;margin-top:2px"><span style="font:800 38px/1.1 'Plus Jakarta Sans';letter-spacing:-.02em">610–740</span><span style="font:600 14px 'Plus Jakarta Sans';color:#55615A">kcal</span></div>
+            <div style="position:relative;height:40px;margin-top:10px">
+              <div style="position:absolute;top:12px;left:0;right:0;height:6px;border-radius:3px;background:#EDEAE0"></div>
+              <div style="position:absolute;top:8px;left:27.5%;width:32.5%;height:14px;border-radius:7px;background:#F1D39F"></div>
+              <div style="position:absolute;top:4px;left:43.7%;width:3px;height:22px;border-radius:2px;background:#173D30"></div>
+              <span style="position:absolute;top:28px;left:0;font:500 10px 'Geist Mono',monospace;color:#55615A">500</span><span style="position:absolute;top:28px;left:43.7%;transform:translateX(-50%);font:600 10px 'Geist Mono',monospace">675 most likely</span><span style="position:absolute;top:28px;right:0;font:500 10px 'Geist Mono',monospace;color:#55615A">900</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font:600 12px 'Plus Jakarta Sans';color:#55615A;margin-top:12px"><span style="display:flex;gap:3px"><span style="width:8px;height:8px;border-radius:50%;background:#173D30"></span><span style="width:8px;height:8px;border-radius:50%;background:#173D30"></span><span style="width:8px;height:8px;border-radius:50%;background:#DDD8CB"></span></span>Medium confidence. The rice portion and hidden dressing account for most of the range.</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding:12px 14px;border-radius:16px;background:#F3F0E7"><div><div style="font:700 14px 'Plus Jakarta Sans'">Refine with Precision</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A">Answer up to 3 questions about portions and cooking</div></div><span style="font:700 18px system-ui;color:#173D30">›</span></div>
+          </div>
+
+          <div style="background:#fff;border-radius:24px;padding:18px">
+            <div style="font:700 16px 'Plus Jakarta Sans';margin-bottom:12px">Macros in this meal</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+              <div style="background:#F3F0E7;border-radius:16px;padding:12px"><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Protein</div><div style="font:800 20px 'Plus Jakarta Sans';margin-top:2px">42 g</div><div style="font:500 11px 'Plus Jakarta Sans';color:#55615A">38–46 g</div></div>
+              <div style="background:#F3F0E7;border-radius:16px;padding:12px"><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Carbs</div><div style="font:800 20px 'Plus Jakarta Sans';margin-top:2px">68 g</div><div style="font:500 11px 'Plus Jakarta Sans';color:#55615A">60–76 g</div></div>
+              <div style="background:#F3F0E7;border-radius:16px;padding:12px"><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Fat</div><div style="font:800 20px 'Plus Jakarta Sans';margin-top:2px">24 g</div><div style="font:500 11px 'Plus Jakarta Sans';color:#55615A">19–29 g</div></div>
+            </div>
+          </div>
+
+          <div style="background:#fff;border-radius:24px;padding:18px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:700 16px 'Plus Jakarta Sans'">Meal fit · Gym cut</span><span style="font:700 12px 'Plus Jakarta Sans';padding:5px 10px;border-radius:999px;background:#E6EDE0;color:#173D30">Good fit</span></div>
+            <div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin:6px 0 14px">If you save it, this meal fits your remaining calories and gives a strong protein boost.</div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <sc-for list="{{ fit }}" as="f" hint-placeholder-count="4"><div><div style="display:flex;justify-content:space-between;font:600 13px 'Plus Jakarta Sans'"><span>{{ f.name }}</span><span style="color:#55615A">{{ f.label }}</span></div><div style="height:8px;border-radius:4px;background:#EDEAE0;margin-top:6px;overflow:hidden;display:flex"><div style="height:8px;background:#173D30;width:{{ f.now }}"></div><div style="height:8px;background:repeating-linear-gradient(45deg,#D9A24E 0 3px,#F1D39F 3px 6px);width:{{ f.add }}"></div></div></div></sc-for>
+            </div>
+            <div style="display:flex;gap:14px;font:500 11px 'Plus Jakarta Sans';color:#55615A;margin-top:10px"><span style="display:flex;gap:5px;align-items:center"><span style="width:10px;height:10px;border-radius:3px;background:#173D30"></span>Saved today</span><span style="display:flex;gap:5px;align-items:center"><span style="width:10px;height:10px;border-radius:3px;background:repeating-linear-gradient(45deg,#D9A24E 0 2px,#F1D39F 2px 4px)"></span>This meal (if saved)</span></div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid #EFECE3;font:500 13px/1.45 'Plus Jakarta Sans'">
+              <div style="display:flex;gap:10px"><span style="width:20px;height:20px;border-radius:50%;background:#E6EDE0;color:#173D30;display:grid;place-items:center;font:700 11px 'Plus Jakarta Sans';flex:none">✓</span>42 g protein covers more than half of the 77 g you still need.</div>
+              <div style="display:flex;gap:10px"><span style="width:20px;height:20px;border-radius:50%;background:#F6EBD6;color:#6B4B14;display:grid;place-items:center;font:700 11px 'Plus Jakarta Sans';flex:none">!</span>Uses all of today's remaining fat (24 g). Lighter dressing would leave room.</div>
+              <div style="display:flex;gap:10px"><span style="width:20px;height:20px;border-radius:50%;background:#F3F0E7;color:#55615A;display:grid;place-items:center;font:700 11px 'Plus Jakarta Sans';flex:none">i</span>About 255 kcal left for the rest of the day.</div>
+            </div>
+          </div>
+
+          <div style="background:#fff;border-radius:24px;padding:18px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 16px 'Plus Jakarta Sans'">Ingredients</span><span style="font:500 12px 'Plus Jakarta Sans';color:#55615A">Tap to edit</span></div>
+            <div style="display:flex;gap:12px;font:600 11px 'Plus Jakarta Sans';color:#55615A;margin:8px 0 4px"><span style="display:flex;gap:5px;align-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#173D30"></span>Seen</span><span style="display:flex;gap:5px;align-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#D9A24E"></span>Estimated portion</span><span style="display:flex;gap:5px;align-items:center"><span style="width:8px;height:8px;border-radius:50%;border:1.5px dashed #55615A;box-sizing:border-box"></span>Assumed</span></div>
+            <sc-for list="{{ ingr }}" as="i" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:{{ i.border }}">
+                <span style="width:9px;height:9px;border-radius:50%;box-sizing:border-box;flex:none;background:{{ i.dot }};border:{{ i.dotB }}"></span>
+                <div style="flex:1;min-width:0"><div style="font:700 14px 'Plus Jakarta Sans'">{{ i.name }}</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A;margin-top:2px">{{ i.portion }} · {{ i.macro }}</div></div>
+                <span style="font:700 15px 'Plus Jakarta Sans'">{{ i.kcal }}</span>
+                <span style="height:32px;padding:0 10px;border-radius:10px;background:#F3F0E7;display:grid;place-items:center;font:700 12px 'Plus Jakarta Sans';color:#173D30">Edit</span>
+              </div>
+            </sc-for>
+            <div style="margin-top:8px;height:46px;border-radius:14px;border:1.5px dashed #CFCABB;display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans';color:#173D30">+ Add a missing item</div>
+          </div>
+
+          <div style="background:#F6EBD6;border-radius:22px;padding:16px 18px">
+            <div style="font:700 14px 'Plus Jakarta Sans';color:#6B4B14">What we assumed</div>
+            <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;font:500 13px/1.45 'Plus Jakarta Sans';color:#5A4520">
+              <div>· Standard 24 cm bowl used for scale</div><div>· Chicken grilled with little or no oil</div><div>· About 1 tbsp sesame dressing (not visible)</div>
+            </div>
+          </div>
+
+          <div style="font:500 12px/1.5 'Plus Jakarta Sans';color:#55615A;padding:0 4px 4px;text-wrap:pretty">Foods and portions are estimated from your photo by a third-party AI service. Nutrition values come from a reference food database. The range reflects how much the photo can show, so treat results as estimates, not exact measurements.</div>
+
+          <div style="background:#fff;border-top:1px solid #EAE6DA;margin:0 -20px;padding:14px 20px 34px;display:flex;flex-direction:column;gap:10px;box-shadow:0 -8px 24px rgba(23,61,48,.06)">
+            <div style="display:flex;justify-content:space-between;align-items:center;font:600 13px 'Plus Jakarta Sans'"><span style="color:#55615A">Save as</span><span style="display:flex;gap:6px"><span style="padding:7px 12px;border-radius:999px;background:#173D30;color:#F8F5EE;font:700 12px 'Plus Jakarta Sans'">Lunch</span><span style="padding:7px 12px;border-radius:999px;background:#F3F0E7;font:700 12px 'Plus Jakarta Sans'">Today 12:41 ▾</span></span></div>
+            <div style="display:flex;gap:10px"><button style="width:104px;height:56px;border-radius:999px;border:1.5px solid #D9D4C6;background:#fff;font:700 15px 'Plus Jakarta Sans';color:#202B25">Discard</button><button style="flex:1;height:56px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 16px 'Plus Jakarta Sans'">Save to diary · 675 kcal</button></div>
+          </div>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">R1</span><span style="font:700 15px 'Plus Jakarta Sans'">Results review (full scroll)</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">The whole scroll is shown. The Save footer is sticky on device. The meal type is pre-filled from the time of day and can be changed. After Precision, the badge reads "Precision · N answered" and the range updates to whatever the recalculation returns. Offline: Save is disabled with the amber banner. Discard asks for confirmation.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="R2 Edit ingredient" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8;color:#fff"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,#2E3D35 0 12px,#28372F 12px 24px)"></div>
+        <div style="position:absolute;inset:0;background:rgba(15,26,21,.5)"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;top:170px;background:#F8F5EE;border-radius:28px 28px 0 0;padding:10px 22px 0;box-shadow:0 -8px 32px rgba(23,61,48,.12)">
+          <div style="width:40px;height:5px;border-radius:3px;background:#D9D4C6;margin:0 auto 16px"></div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font:800 22px 'Plus Jakarta Sans'">Jasmine rice</div><div style="font:500 13px 'Plus Jakarta Sans';color:#55615A;margin-top:4px">AI estimate: ~180 g (about 1 cup)</div></div><span style="display:flex;align-items:center;gap:6px;font:700 12px 'Plus Jakarta Sans';padding:6px 10px;border-radius:999px;background:#F6EBD6;color:#6B4B14"><span style="width:7px;height:7px;border-radius:50%;background:#D9A24E"></span>Estimated</span></div>
+          <div style="background:#fff;border-radius:24px;padding:18px;margin-top:18px">
+            <div style="display:flex;align-items:center;gap:12px">
+              <button onClick="{{ riceDec }}" style="width:56px;height:56px;border-radius:16px;border:1.5px solid #DDD8CB;background:#fff;font:600 24px 'Plus Jakarta Sans';color:#173D30;cursor:pointer">−</button>
+              <div style="flex:1;text-align:center"><div style="font:800 32px 'Plus Jakarta Sans';letter-spacing:-.02em">{{ rice }}</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A">{{ riceCups }}</div></div>
+              <button onClick="{{ riceInc }}" style="width:56px;height:56px;border-radius:16px;border:1.5px solid #DDD8CB;background:#fff;font:600 24px 'Plus Jakarta Sans';color:#173D30;cursor:pointer">+</button>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px">
+              <sc-for list="{{ riceSet }}" as="r" hint-placeholder-count="3"><button onClick="{{ r.pick }}" style="height:44px;border-radius:14px;border:1.5px solid #DDD8CB;cursor:pointer;font:700 13px 'Plus Jakarta Sans';background:{{ r.bg }};color:{{ r.fg }}">{{ r.l }}</button></sc-for>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:14px;font:600 13px 'Plus Jakarta Sans'"><span style="color:#55615A">Unit</span><span style="display:flex;gap:4px"><span style="padding:5px 10px;border-radius:8px;background:#173D30;color:#F8F5EE">g</span><span style="padding:5px 10px;border-radius:8px;background:#F3F0E7">cup</span><span style="padding:5px 10px;border-radius:8px;background:#F3F0E7">bowl</span></span></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;background:#E6EDE0;border-radius:18px;padding:14px 16px"><div><div style="font:600 12px 'Plus Jakarta Sans';color:#173D30">This item</div><div style="font:800 18px 'Plus Jakarta Sans';color:#173D30">{{ riceK }} kcal</div></div><div style="text-align:right"><div style="font:600 12px 'Plus Jakarta Sans';color:#173D30">Meal total</div><div style="font:800 18px 'Plus Jakarta Sans';color:#173D30">~{{ riceTotal }} kcal</div></div></div>
+          <div style="display:flex;gap:10px;margin-top:12px"><span style="flex:1;height:48px;border-radius:14px;background:#fff;display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans'">Change food</span><span style="flex:1;height:48px;border-radius:14px;background:#fff;display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans';color:#A3452F">Remove</span></div>
+          <div style="font:500 12px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:12px">Edited items are marked "You set" and count as confirmed in the range.</div>
+        </div>
+        <div style="position:absolute;left:22px;right:22px;bottom:36px"><button style="width:100%;height:56px;border-radius:999px;border:0;background:#173D30;color:#F8F5EE;font:700 16px 'Plus Jakarta Sans'">Done</button></div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">R2</span><span style="font:700 15px 'Plus Jakarta Sans'">Edit ingredient sheet</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Interactive. The stepper moves in 25 g steps and quick sizes match the Precision answers. Item and meal totals update live. "Change food" opens a database search. Done returns to R1, still unsaved.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="H3 Home after save" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;inset:0 0 86px 0;overflow-y:auto;padding:62px 20px 20px;background:linear-gradient(180deg,#E9EEE0 0%,#F8F5EE 240px)">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><div><div style="font:500 13px 'Plus Jakarta Sans';color:#55615A">Monday, 16 Nov</div><div style="font:700 22px/1.2 'Plus Jakarta Sans'">Good afternoon, Maya</div></div><span style="width:44px;height:44px;border-radius:50%;background:#173D30;color:#F8F5EE;display:grid;place-items:center;font:700 16px 'Plus Jakarta Sans'">M</span></div>
+          <div style="background:#fff;border-radius:28px;padding:20px;box-shadow:0 1px 2px rgba(23,61,48,.06)">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:700 16px 'Plus Jakarta Sans'">Calories</span><span style="font:600 12px 'Plus Jakarta Sans';padding:7px 12px;border-radius:999px;background:#EDEEE3;color:#173D30">Gym cut · 2,050</span></div>
+            <div style="position:relative;width:270px;height:150px;margin:14px auto 0">
+              <sc-for list="{{ arcA }}" as="s" hint-placeholder-count="15"><div style="position:absolute;left:118px;top:128px;width:34px;height:15px;border-radius:6px;background:{{ s.c }};transform:{{ s.t }}"></div></sc-for>
+              <div style="position:absolute;left:0;right:0;top:62px;text-align:center"><div style="font:800 44px/1 'Plus Jakarta Sans';letter-spacing:-.03em">255</div><div style="font:500 13px 'Plus Jakarta Sans';color:#55615A;margin-top:4px">kcal remaining</div></div>
+            </div>
+            <div style="text-align:center;font:500 12px 'Plus Jakarta Sans';color:#55615A;margin:0 0 14px">1,795 eaten of 2,050</div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <sc-for list="{{ macrosA }}" as="m" hint-placeholder-count="3"><div><div style="display:flex;justify-content:space-between;font:600 13px 'Plus Jakarta Sans'"><span>{{ m.name }}</span><span style="color:#55615A">{{ m.eaten }} / {{ m.target }} g · <b style="color:#202B25">{{ m.left }} g left</b></span></div><div style="height:8px;border-radius:4px;background:#EDEAE0;margin-top:6px;overflow:hidden"><div style="height:8px;background:#173D30;width:{{ m.pct }}"></div></div></div></sc-for>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin:18px 4px 10px"><span style="font:700 16px 'Plus Jakarta Sans'">Today</span><span style="font:700 13px 'Plus Jakarta Sans';color:#173D30">History</span></div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ mealsA }}" as="ml" hint-placeholder-count="3">
+              <div style="background:#fff;border-radius:22px;padding:10px;display:flex;gap:12px;align-items:center"><div style="width:58px;height:58px;border-radius:16px;background:repeating-linear-gradient(135deg,#E3DFD3 0 6px,#ECE9DF 6px 12px);display:grid;place-items:center;font:9px 'Geist Mono',monospace;color:#6B756E">photo</div><div style="flex:1;min-width:0"><div style="font:700 14px 'Plus Jakarta Sans'">{{ ml.name }}</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A;margin-top:2px">{{ ml.type }} · {{ ml.time }} · {{ ml.p }} g protein</div></div><div style="text-align:right;padding-right:6px"><div style="font:700 15px 'Plus Jakarta Sans'">{{ ml.kcal }}</div><div style="font:500 11px 'Plus Jakarta Sans';color:#55615A">kcal</div></div></div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="position:absolute;left:16px;right:16px;bottom:100px;display:flex;align-items:center;gap:10px;background:#173D30;color:#F8F5EE;border-radius:18px;padding:14px 16px;box-shadow:0 10px 30px rgba(15,26,21,.25);z-index:3"><span style="width:24px;height:24px;border-radius:50%;background:#7FA07E;display:grid;place-items:center;font:700 12px 'Plus Jakarta Sans';color:#0F2A21">✓</span><span style="flex:1;font:600 14px 'Plus Jakarta Sans'">Lunch saved · 675 kcal added</span><span style="font:700 14px 'Plus Jakarta Sans';color:#C9DCC8">Undo</span></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:86px;background:#fff;border-top:1px solid #EAE6DA;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:start;padding-top:10px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:22px;height:22px;border-radius:7px;background:#173D30"></span><span style="font:700 11px 'Plus Jakarta Sans';color:#173D30">Home</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:-28px"><span style="width:60px;height:60px;border-radius:50%;background:#173D30;box-shadow:0 6px 16px rgba(23,61,48,.3);display:grid;place-items:center"><span style="width:20px;height:20px;border-radius:50%;border:3px solid #F8F5EE"></span></span><span style="font:700 11px 'Plus Jakarta Sans';color:#173D30">Scan</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:22px;height:22px;border-radius:7px;border:2px solid #6B756E;box-sizing:border-box"></span><span style="font:600 11px 'Plus Jakarta Sans';color:#6B756E">History</span></div>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">H3</span><span style="font:700 15px 'Plus Jakarta Sans'">Saved · totals updated</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Save closes the scan stack and returns to Home. Remaining calories drop from 930 to 255, and the arc and bars animate over 600 ms. Undo is available for 6 s, and the meal can be deleted later from History. Fat reaches its 62 g target.</div></div>
+    </div>
+
+  </div>
+</section>
+<section id="s08" data-screen-label="08 History and profile" style="padding:56px 64px 80px;width:2200px;box-sizing:border-box;border-top:1px solid #DDD9CD">
+  <div style="display:flex;align-items:baseline;gap:14px"><span style="font:500 13px 'Geist Mono',monospace;color:#5E7F5D">08</span><h2 style="font:800 32px 'Plus Jakarta Sans';letter-spacing:-.02em;margin:0">Food diary, profile &amp; goals</h2></div>
+  <p style="font:500 15px/1.5 'Plus Jakarta Sans';color:#55615A;margin:8px 0 36px;max-width:900px">History is a day-by-day diary, with no charts in the MVP. Profile groups goal, body data and privacy. Goals &amp; targets is where recommended and manual values sit side by side.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:56px 44px">
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="D1 History" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;inset:0 0 86px 0;overflow-y:auto;padding:62px 20px 20px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><span style="font:800 28px 'Plus Jakarta Sans';letter-spacing:-.02em">History</span><span style="font:700 13px 'Plus Jakarta Sans';padding:9px 14px;border-radius:999px;background:#fff">Nov 2026 ▾</span></div>
+          <div style="display:flex;gap:6px;margin-bottom:14px"><sc-for list="{{ week }}" as="d" hint-placeholder-count="7"><div style="flex:1;height:54px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;background:{{ d.bg }};color:{{ d.fg }}"><span style="font:500 11px 'Plus Jakarta Sans';opacity:.8">{{ d.w }}</span><span style="font:700 15px 'Plus Jakarta Sans'">{{ d.n }}</span></div></sc-for></div>
+          <div style="background:#fff;border-radius:24px;padding:16px 18px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 15px 'Plus Jakarta Sans'">Today</span><span style="font:600 13px 'Plus Jakarta Sans';color:#55615A"><b style="color:#202B25;font:800 17px 'Plus Jakarta Sans'">1,795</b> / 2,050 kcal</span></div>
+            <div style="height:8px;border-radius:4px;background:#EDEAE0;margin:10px 0 12px;overflow:hidden"><div style="height:8px;width:88%;background:#173D30"></div></div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);font:600 12px 'Plus Jakarta Sans';color:#55615A"><span>P <b style="color:#202B25">130</b>/165 g</span><span>C <b style="color:#202B25">188</b>/208 g</span><span>F <b style="color:#202B25">62</b>/62 g</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:16px">
+            <sc-for list="{{ groups }}" as="g" hint-placeholder-count="4">
+              <div>
+                <div style="font:700 12px 'Plus Jakarta Sans';color:#55615A;letter-spacing:.04em;margin:0 4px 6px">{{ g.type }}</div>
+                <sc-for list="{{ g.items }}" as="ml" hint-placeholder-count="1">
+                  <div style="background:#fff;border-radius:20px;padding:10px;display:flex;gap:12px;align-items:center"><div style="width:48px;height:48px;border-radius:14px;background:repeating-linear-gradient(135deg,#E3DFD3 0 6px,#ECE9DF 6px 12px)"></div><div style="flex:1;min-width:0"><div style="font:700 14px 'Plus Jakarta Sans'">{{ ml.name }}</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A;margin-top:2px">{{ ml.time }} · {{ ml.p }} g protein</div></div><div style="font:700 15px 'Plus Jakarta Sans';padding-right:8px">{{ ml.kcal }}</div></div>
+                </sc-for>
+                <sc-if value="{{ g.empty }}" hint-placeholder-val="{{ false }}"><div style="border:1.5px dashed #CFCABB;border-radius:20px;padding:14px;display:flex;justify-content:space-between;align-items:center;font:600 13px 'Plus Jakarta Sans';color:#55615A">Not logged<span style="color:#173D30;font-weight:700">Scan</span></div></sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:86px;background:#fff;border-top:1px solid #EAE6DA;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:start;padding-top:10px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:22px;height:22px;border-radius:7px;border:2px solid #6B756E;box-sizing:border-box"></span><span style="font:600 11px 'Plus Jakarta Sans';color:#6B756E">Home</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:-28px"><span style="width:60px;height:60px;border-radius:50%;background:#173D30;box-shadow:0 6px 16px rgba(23,61,48,.3);display:grid;place-items:center"><span style="width:20px;height:20px;border-radius:50%;border:3px solid #F8F5EE"></span></span><span style="font:700 11px 'Plus Jakarta Sans';color:#173D30">Scan</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:22px;height:22px;border-radius:7px;background:#173D30"></span><span style="font:700 11px 'Plus Jakarta Sans';color:#173D30">History</span></div>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">D1</span><span style="font:700 15px 'Plus Jakarta Sans'">Food diary · day</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Meals are grouped by type, and empty slots link to Scan. Tapping a meal opens its saved review to edit portions or delete it, and totals recalculate on save. Swipe left on a meal to delete.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="D2 History empty" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;top:62px;left:20px;right:20px"><span style="font:800 28px 'Plus Jakarta Sans';letter-spacing:-.02em">History</span></div>
+        <div style="position:absolute;top:250px;left:36px;right:36px;text-align:center">
+          <div style="width:72px;height:72px;border-radius:24px;background:#E6EDE0;margin:0 auto 20px;display:grid;place-items:center"><span style="width:28px;height:32px;border-radius:6px;border:3px solid #173D30;box-sizing:border-box"></span></div>
+          <div style="font:800 22px 'Plus Jakarta Sans'">Your diary is empty</div>
+          <div style="font:500 15px/1.55 'Plus Jakarta Sans';color:#55615A;margin-top:8px;text-wrap:pretty">Meals you save after scanning appear here, grouped by day.</div>
+          <span style="display:inline-flex;margin-top:20px;height:50px;padding:0 24px;align-items:center;border-radius:999px;background:#173D30;color:#F8F5EE;font:700 15px 'Plus Jakarta Sans'">Scan your first meal</span>
+        </div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:86px;background:#fff;border-top:1px solid #EAE6DA;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:start;padding-top:10px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:22px;height:22px;border-radius:7px;border:2px solid #6B756E;box-sizing:border-box"></span><span style="font:600 11px 'Plus Jakarta Sans';color:#6B756E">Home</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:-28px"><span style="width:60px;height:60px;border-radius:50%;background:#173D30;box-shadow:0 6px 16px rgba(23,61,48,.3);display:grid;place-items:center"><span style="width:20px;height:20px;border-radius:50%;border:3px solid #F8F5EE"></span></span><span style="font:700 11px 'Plus Jakarta Sans';color:#173D30">Scan</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="width:22px;height:22px;border-radius:7px;background:#173D30"></span><span style="font:700 11px 'Plus Jakarta Sans';color:#173D30">History</span></div>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">D2</span><span style="font:700 15px 'Plus Jakarta Sans'">Diary · empty</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">First-use empty state. Past days with no meals show a single "Nothing logged" row, not this screen.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="U1 Profile" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;inset:0;overflow-y:auto;padding:62px 20px 30px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font:600 20px system-ui">‹</span><span style="font:800 22px 'Plus Jakarta Sans'">Profile</span></div>
+          <div style="display:flex;align-items:center;gap:14px;background:#fff;border-radius:24px;padding:16px;margin-bottom:16px"><span style="width:56px;height:56px;border-radius:50%;background:#173D30;color:#F8F5EE;display:grid;place-items:center;font:700 20px 'Plus Jakarta Sans'">M</span><div><div style="font:700 17px 'Plus Jakarta Sans'">Maya</div><div style="font:500 13px 'Plus Jakarta Sans';color:#55615A">maya@example.com · Private beta</div></div></div>
+          <div style="font:700 12px 'Plus Jakarta Sans';color:#55615A;letter-spacing:.04em;margin:0 4px 6px">NUTRITION</div>
+          <div style="background:#fff;border-radius:22px;padding:0 16px;margin-bottom:16px">
+            <sc-for list="{{ set1 }}" as="r" hint-placeholder-count="5"><div style="display:flex;justify-content:space-between;align-items:center;min-height:52px;border-bottom:{{ r.bd }}"><span style="font:600 15px 'Plus Jakarta Sans'">{{ r.l }}</span><span style="font:500 13px 'Plus Jakarta Sans';color:#55615A;display:flex;gap:8px;align-items:center">{{ r.v }}<span style="font:400 16px system-ui;color:#9AA39C">›</span></span></div></sc-for>
+          </div>
+          <div style="font:700 12px 'Plus Jakarta Sans';color:#55615A;letter-spacing:.04em;margin:0 4px 6px">PRIVACY &amp; DATA</div>
+          <div style="background:#fff;border-radius:22px;padding:0 16px;margin-bottom:8px">
+            <div style="display:flex;justify-content:space-between;align-items:center;min-height:60px;border-bottom:1px solid #EFECE3"><div><div style="font:600 15px 'Plus Jakarta Sans'">Keep meal photos</div><div style="font:500 12px 'Plus Jakarta Sans';color:#55615A">Off: we delete photos after analysis</div></div><span style="width:50px;height:30px;border-radius:999px;background:#DDD8CB;position:relative"><span style="position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2)"></span></span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;min-height:52px;border-bottom:1px solid #EFECE3"><span style="font:600 15px 'Plus Jakarta Sans'">Export my data</span><span style="font:400 16px system-ui;color:#9AA39C">›</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;min-height:52px;border-bottom:1px solid #EFECE3"><span style="font:600 15px 'Plus Jakarta Sans'">How estimates work</span><span style="font:400 16px system-ui;color:#9AA39C">›</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;min-height:52px"><span style="font:600 15px 'Plus Jakarta Sans';color:#A3452F">Delete account &amp; data</span></div>
+          </div>
+          <div style="text-align:center;font:700 14px 'Plus Jakarta Sans';color:#55615A;margin-top:18px">Sign out</div>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">U1</span><span style="font:700 15px 'Plus Jakarta Sans'">Profile &amp; settings</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Opened from the Home avatar. Photo retention is off by default. "How estimates work" explains that photos go to a third-party AI provider and links to that provider's retention terms. Whether History shows thumbnails still needs your decision.</div></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:22px;width:390px;padding:10px">
+      <div data-screen-label="U2 Goals and targets" style="width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:#F8F5EE;box-shadow:0 0 0 10px #16201b,0 24px 50px rgba(0,0,0,.16);font-family:'Plus Jakarta Sans',sans-serif;color:#202B25">
+        <div style="position:absolute;top:11px;left:50%;margin-left:-60px;width:120px;height:34px;border-radius:20px;background:#000;z-index:9"></div><div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;font:600 15px system-ui;z-index:8"><span>9:41</span><span style="width:26px;height:12px;border:1.5px solid currentColor;border-radius:4px"></span></div>
+        <div style="position:absolute;inset:0;overflow-y:auto;padding:62px 20px 30px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font:600 20px system-ui">‹</span><span style="font:800 22px 'Plus Jakarta Sans'">Goals &amp; targets</span></div>
+          <div style="background:#F6EBD6;border-radius:20px;padding:14px 16px;margin-bottom:14px">
+            <div style="font:700 14px 'Plus Jakarta Sans';color:#6B4B14">Your recommendation changed</div>
+            <div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#5A4520;margin-top:4px">You updated your weight to 64 kg. The new recommendation is 2,000 kcal. Your manual targets were kept.</div>
+            <div style="display:flex;gap:8px;margin-top:10px"><span style="height:38px;padding:0 14px;border-radius:999px;background:#173D30;color:#F8F5EE;display:grid;place-items:center;font:700 13px 'Plus Jakarta Sans'">Use 2,000</span><span style="height:38px;padding:0 14px;border-radius:999px;background:#fff;display:grid;place-items:center;font:700 13px 'Plus Jakarta Sans'">Keep mine</span></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;background:#fff;border-radius:20px;padding:14px 16px;margin-bottom:14px"><div><div style="font:600 12px 'Plus Jakarta Sans';color:#55615A">Goal</div><div style="font:700 16px 'Plus Jakarta Sans'">Gym cut</div></div><span style="font:700 13px 'Plus Jakarta Sans';color:#173D30">Change</span></div>
+          <div style="background:#fff;border-radius:24px;padding:6px 16px 10px">
+            <div style="display:grid;grid-template-columns:1fr 80px 80px;gap:8px;padding:12px 0 8px;border-bottom:1px solid #EFECE3;font:700 11px 'Plus Jakarta Sans';color:#55615A;letter-spacing:.04em"><span>TARGET</span><span style="text-align:right">RECOMMENDED</span><span style="text-align:right;color:#173D30">YOURS</span></div>
+            <sc-for list="{{ tgt }}" as="t" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:1fr 80px 80px;gap:8px;align-items:center;min-height:52px;border-bottom:1px solid #EFECE3">
+                <span style="font:600 15px 'Plus Jakarta Sans'">{{ t.n }}</span>
+                <span style="text-align:right;font:500 14px 'Plus Jakarta Sans';color:#55615A">{{ t.r }} {{ t.u }}</span>
+                <span style="text-align:right;font:800 15px 'Plus Jakarta Sans'">{{ t.m }} {{ t.u }}</span>
+              </div>
+            </sc-for>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:12px"><span style="font:700 11px 'Plus Jakarta Sans';padding:4px 8px;border-radius:6px;background:#173D30;color:#F8F5EE">MANUAL</span><span style="font:500 12px 'Plus Jakarta Sans';color:#55615A">Set by you on 2 Nov · used for meal fit</span></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:16px"><span style="flex:1;height:52px;border-radius:999px;border:1.5px solid #D9D4C6;background:#fff;display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans'">Reset to recommended</span><span style="flex:1;height:52px;border-radius:999px;background:#173D30;color:#F8F5EE;display:grid;place-items:center;font:700 14px 'Plus Jakarta Sans'">Edit my targets</span></div>
+          <div style="font:500 12px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:14px;padding:0 4px">Changing a target affects today and future days only. Past diary days keep the targets that applied then.</div>
+        </div>
+      </div>
+      <div><div style="display:flex;gap:8px;align-items:baseline"><span style="font:600 11px 'Geist Mono',monospace;padding:3px 7px;border-radius:5px;background:#173D30;color:#fff">U2</span><span style="font:700 15px 'Plus Jakarta Sans'">Goals &amp; targets · manual scenario</span></div><div style="font:500 13px/1.5 'Plus Jakarta Sans';color:#55615A;margin-top:6px">Mock scenario: the user set 1,900 kcal manually, then their weight changed. The new recommendation is offered and never applied silently.</div></div>
+    </div>
+
+  </div>
+  <div style="margin-top:56px;background:#fff;border-radius:24px;padding:28px 32px;max-width:1300px">
+    <div style="font:700 17px 'Plus Jakarta Sans';margin-bottom:12px">Open decisions before handoff</div>
+    <ol style="margin:0;padding-left:20px;font:500 14px/1.6 'Plus Jakarta Sans';color:#2B3630;display:flex;flex-direction:column;gap:6px">
+      <li>Photo retention: discard after analysis by default (current design), or keep a small thumbnail for History?</li>
+      <li>Sign-in for the private MVP: email magic link, Apple/Google, or invite code?</li>
+      <li>Daily scan limit for cost control: should the limit be visible (A2 variant) or silent?</li><li>Upper age bound and other eligibility rules for automatic targets (pregnancy and medical conditions are deferred).</li>
+      <li>Nutrition Goal Engine spec: energy equation, activity factors, goal adjustments, macro rules and rounding. All values shown are placeholders.</li><li>Third-party vision provider choice and its data-retention terms, which the consent copy needs.</li>
+      <li>Icon set: placeholder shapes are used throughout. Pick a library (e.g. Phosphor or Lucide) at handoff.</li>
+    </ol>
+  </div>
+</section></x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ans: ['1 cup', 'Pan-fried, oil', null], rice: 225, goal: 'Gym cut', act: 'Very active' };
+  arc(f) { const N = 15; return Array.from({ length: N }, (_, i) => ({ t: `rotate(${(i * 180) / (N - 1)}deg) translateX(-112px)`, c: i < f ? '#173D30' : '#E9E6DB' })); }
+  mac(name, eaten, target) { return { name, eaten, target, left: Math.max(0, target - eaten), pct: Math.min(100, Math.round((eaten / target) * 100)) + '%' }; }
+  renderVals() {
+    const S = this.state;
+    const node = (t, kind, i) => ({ t, arrow: i ? '→' : '', bg: kind === 'c' ? '#173D30' : kind === 'o' ? '#F6EBD6' : kind === 'e' ? '#F6E3DC' : '#F8F5EE', fg: kind === 'c' ? '#F8F5EE' : kind === 'o' ? '#6B4B14' : kind === 'e' ? '#7E3322' : '#202B25', border: kind ? 'none' : '1px solid #E6E2D6' });
+    const fl = (name, note, arr) => ({ name, note, nodes: arr.map(([t, k], i) => node(t, k, i)) });
+    const flows = [
+      fl('Onboarding', 'First launch only. Under 18 → manual targets', [['Welcome'], ['Goal'], ['About you'], ['Activity'], ['Your targets'], ['Adjust targets', 'o'], ['Save profile', 'c'], ['Home (empty day)']]),
+      fl('Scan · Auto', 'No questions', [['Home / Scan tab'], ['Camera'], ['Photo preview + mode'], ['Analyzing'], ['Results review'], ['Edit ingredient', 'o'], ['Save to diary', 'c'], ['Home · totals updated']]),
+      fl('Scan · Precision', 'Max 3 questions. Skip → next question. Use current estimate → Results review', [['Photo preview + mode'], ['Analyzing'], ['Question 1', 'o'], ['Question 2', 'o'], ['Question 3', 'o'], ['Recalculating'], ['Results review'], ['Save to diary', 'c']]),
+      fl('Exceptions', 'Recoverable states', [['Not eligible for auto targets', 'e'], ['Set manual targets'], ['Camera permission denied', 'e'], ['Open Settings / use gallery'], ['Analysis failed', 'e'], ['Retake / another photo'], ['Offline', 'e'], ['Try again / discard']]),
+      fl('History & profile', 'Tabs and Home avatar', [['History tab'], ['Day diary'], ['Saved meal (edit / delete)'], ['Home avatar'], ['Profile & settings'], ['Goals & targets'], ['Save targets', 'c']]),
+    ];
+    const colors = [
+      ['bg', '#F8F5EE', 'Ivory app background'], ['surface', '#FFFFFF', 'Cards, sheets'], ['surface-muted', '#F3F0E7', 'Tiles, inputs'], ['line', '#E6E2D6', 'Dividers, borders'],
+      ['primary', '#173D30', 'Forest. Buttons, active, Seen'], ['accent', '#7FA07E', 'Sage. Fills, success'], ['accent-tint', '#E6EDE0', 'Selected, badges'], ['camera', '#0F1A15', 'Camera & photo stages'],
+      ['estimate', '#D9A24E', 'Estimated, projected'], ['estimate-tint', '#F6EBD6', 'Estimate chips, warnings'], ['text', '#202B25', 'Primary text'], ['text-muted', '#55615A', 'Secondary text (7:1)'],
+      ['danger', '#A3452F', 'Errors, destructive'], ['danger-tint', '#F6E3DC', 'Error surfaces'],
+    ].map(([name, hex, use]) => ({ name, hex, use }));
+    const types = [
+      ['display', "800 44px/1 'Plus Jakarta Sans'", '930', '44/800'], ['title-1', "800 28px 'Plus Jakarta Sans'", 'Your targets', '28/800'], ['title-2', "700 22px 'Plus Jakarta Sans'", 'Chicken rice bowl', '22/700'],
+      ['heading', "700 17px 'Plus Jakarta Sans'", 'Meal fit', '17/700'], ['body', "500 15px 'Plus Jakarta Sans'", 'Body copy and inputs', '15/500'], ['caption', "500 13px 'Plus Jakarta Sans'", 'Breakfast · 08:12', '13/500'], ['micro', "700 11px 'Plus Jakarta Sans'", 'TAB LABEL', '11/700'],
+    ].map(([name, font, sample, spec]) => ({ name, font, sample, spec }));
+    const spaces = [['space-1', 4], ['space-2', 8], ['space-3', 12], ['space-4', 16], ['space-5', 20], ['space-6', 24], ['space-8', 32]].map(([name, v]) => ({ name, v: v + ' pt', w: v * 4 + 'px' }));
+    const radii = [['sm 10', '10px'], ['md 16', '16px'], ['lg 24', '24px'], ['sheet 28', '28px'], ['pill', '999px']].map(([name, v]) => ({ name, v }));
+    const week = [['Mon', 10], ['Tue', 11], ['Wed', 12], ['Thu', 13], ['Fri', 14], ['Sat', 15], ['Sun', 16]].map(([w, n]) => ({ w, n, bg: n === 16 ? '#173D30' : '#fff', fg: n === 16 ? '#F8F5EE' : '#202B25' }));
+    const oats = { name: 'Oats & peanut butter', type: 'Breakfast', time: '08:12', kcal: 520, p: 24 };
+    const wrap = { name: 'Turkey wrap', type: 'Snack', time: '10:45', kcal: 600, p: 64 };
+    const bowl = { name: 'Chicken rice bowl', type: 'Lunch', time: '12:41', kcal: 675, p: 42 };
+    const B = { P: 88, C: 120, F: 38 }, M = { P: 42, C: 68, F: 24 }, T = { P: 165, C: 208, F: 62 };
+    const macrosB = [this.mac('Protein', B.P, T.P), this.mac('Carbs', B.C, T.C), this.mac('Fat', B.F, T.F)];
+    const macrosA = [this.mac('Protein', B.P + M.P, T.P), this.mac('Carbs', B.C + M.C, T.C), this.mac('Fat', B.F + M.F, T.F)];
+    const macros0 = [this.mac('Protein', 0, T.P), this.mac('Carbs', 0, T.C), this.mac('Fat', 0, T.F)];
+    const pc = (a, b) => Math.round((a / b) * 100) + '%';
+    const fit = [
+      { name: 'Calories', label: '1,120 + 675 of 2,050', now: pc(1120, 2050), add: pc(675, 2050) },
+      { name: 'Protein', label: '88 + 42 of 165 g', now: pc(88, 165), add: pc(42, 165) },
+      { name: 'Carbs', label: '120 + 68 of 208 g', now: pc(120, 208), add: pc(68, 208) },
+      { name: 'Fat', label: '38 + 24 of 62 g', now: pc(38, 62), add: pc(24, 62) },
+    ];
+    const tag = { Seen: ['#E6EDE0', '#173D30', '#173D30', 'none'], Estimated: ['#F6EBD6', '#6B4B14', '#D9A24E', 'none'], Assumed: ['#EEEBE2', '#55615A', 'transparent', '1.5px dashed #55615A'] };
+    const ingr = [
+      ['Chicken thigh, grilled', '~140 g', 250, 'Seen', '33 g P'], ['Jasmine rice', '~180 g · about 1 cup', 210, 'Estimated', '46 g C'], ['Avocado', '~70 g · about ½ fruit', 110, 'Seen', '10 g F'],
+      ['Edamame', '~40 g', 45, 'Seen', '4 g P'], ['Sesame dressing', '~15 ml · not visible', 60, 'Assumed', '6 g F'],
+    ].map(([name, portion, kcal, basis, macro], i, a) => ({ name, portion, kcal, basis, macro, tagBg: tag[basis][0], tagFg: tag[basis][1], dot: tag[basis][2], dotB: tag[basis][3], border: i < a.length - 1 ? '1px solid #EFECE3' : 'none' }));
+    const qdefs = [
+      { title: 'How much rice was in the bowl?', why: 'Rice is the largest source of uncertainty in this meal.', impact: 'High impact on this estimate', opts: ['½ cup', '1 cup', '1½ cups', '2 cups'], range: '610–740', next: 'Next' },
+      { title: 'How was the chicken cooked?', why: 'Cooking fat usually isn\u2019t visible in photos.', impact: 'Medium impact on this estimate', opts: ['Grilled, no oil', 'Pan-fried, oil', 'Pan-fried, butter', 'Not sure'], range: '640–715', next: 'Next' },
+      { title: 'Was there dressing or sauce?', why: 'Sauces add calories without showing clearly.', impact: 'Medium impact on this estimate', opts: ['None', 'Light drizzle', 'About 1 tbsp', 'More than 1 tbsp'], range: '675–745', next: 'See results' },
+    ];
+    const qs = qdefs.map((q, qi) => ({ ...q, n: qi + 1, label: `Question ${qi + 1} of 3`,
+      segs: [0, 1, 2].map(k => ({ bg: k < qi ? '#7FA07E' : k === qi ? '#173D30' : '#E3DFD3' })),
+      opts: q.opts.map(o => { const on = S.ans[qi] === o; return { o, on, pick: () => this.setState(s => { const a = [...s.ans]; a[qi] = a[qi] === o ? null : o; return { ans: a }; }), bg: on ? '#173D30' : '#fff', fg: on ? '#F8F5EE' : '#202B25', bd: on ? '1.5px solid #173D30' : '1.5px solid #DDD8CB' }; }),
+      nextBg: S.ans[qi] ? '#173D30' : '#E9E6DB', nextFg: S.ans[qi] ? '#F8F5EE' : '#8B938C', screen: `P${qi + 1} Question ${qi + 1}` }));
+    const riceK = Math.round(S.rice * 1.167);
+    const goalDefs = [['Weight loss', 'Lose fat at a steady, moderate deficit'], ['Healthy weight gain', 'Gain weight gradually with a gentle surplus'], ['Muscle bulk', 'Build muscle with a surplus and high protein'], ['Gym cut', 'Lose fat while keeping muscle. High protein.'], ['Maintain', 'Keep your weight steady']];
+    const goals = goalDefs.map(([t, d]) => { const on = S.goal === t; return { t, d, pick: () => this.setState({ goal: t }), bg: on ? '#E6EDE0' : '#fff', bd: on ? '2px solid #173D30' : '2px solid transparent', dot: on ? '#173D30' : 'transparent', ring: on ? '#173D30' : '#C9C4B6' }; });
+    const actDefs = [['Mostly sitting', 'Desk job, little exercise', '×1.2'], ['Lightly active', '1–2 workouts a week', '×1.375'], ['Moderately active', '3–4 workouts a week', '×1.55'], ['Very active', '5–6 workouts a week', '×1.725'], ['Athlete', 'Daily training or physical job', '×1.9']];
+    const acts = actDefs.map(([t, d, m]) => { const on = S.act === t; return { t, d, m, pick: () => this.setState({ act: t }), bg: on ? '#E6EDE0' : '#fff', bd: on ? '2px solid #173D30' : '2px solid transparent', dot: on ? '#173D30' : 'transparent', ring: on ? '#173D30' : '#C9C4B6' }; });
+    const groups = [{ type: 'Breakfast', items: [oats], empty: false }, { type: 'Snack', items: [wrap], empty: false }, { type: 'Lunch', items: [bowl], empty: false }, { type: 'Dinner', items: [], empty: true }];
+    const set1 = [['Goal', 'Gym cut'], ['Daily targets', 'Recommended · 2,050 kcal'], ['Personal info', '31 · 168 cm · 66 kg'], ['Activity level', 'Very active'], ['Units', 'Metric']].map(([l, v], i, a) => ({ l, v, bd: i < a.length - 1 ? '1px solid #EFECE3' : 'none' }));
+    const set2 = [['Keep meal photos', 'Off'], ['Export my data', ''], ['How estimates work', '']].map(([l, v], i, a) => ({ l, v, bd: i < a.length - 1 ? '1px solid #EFECE3' : 'none' }));
+    const tgt = [['Calories', '2,050', '1,900', 'kcal'], ['Protein', '165', '165', 'g'], ['Carbs', '208', '170', 'g'], ['Fat', '62', '62', 'g']].map(([n, r, m, u]) => ({ n, r, m, u, diff: r !== m }));
+    return {
+      flows, colors, types, spaces, radii, week, qs, goals, acts, groups, set1, set2, tgt, fit, ingr,
+      arc0: this.arc(0), arcB: this.arc(8), arcA: this.arc(13),
+      macrosB, macrosA, macros0, mealsB: [oats, wrap], mealsA: [oats, wrap, bowl],
+      rice: S.rice + ' g', riceK, riceTotal: 465 + riceK, riceCups: '≈ ' + (S.rice / 180).toFixed(2).replace(/\.?0+$/, '') + ' cup',
+      riceInc: () => this.setState(s => ({ rice: Math.min(450, s.rice + 25) })), riceDec: () => this.setState(s => ({ rice: Math.max(25, s.rice - 25) })),
+      riceSet: [['½ cup', 90], ['1 cup', 180], ['1½ cups', 270]].map(([l, g]) => ({ l, pick: () => this.setState({ rice: g }), bg: S.rice === g ? '#173D30' : '#fff', fg: S.rice === g ? '#F8F5EE' : '#202B25' })),
+    };
+  }
+}
+</script>
+</body>
+</html>

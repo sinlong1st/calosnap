@@ -1,0 +1,28 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p8
+*.p12
+
+# Databases
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+
+# Benchmark images and raw provider output (never commit)
+benchmark/photos/
+benchmark/raw/
+benchmark/results/
+
+# Dependencies / build output
+node_modules/
+dist/
+.expo/
+
+# OS / editor
+.DS_Store
+Thumbs.db
